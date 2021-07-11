@@ -56,8 +56,15 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // 力を加えるのは FixedUpdate で行う
-        m_anim.SetBool("Run", true);
         m_rb.velocity = new Vector2(m_movePower * m_h,m_rb.velocity.y);
+        if(Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.D))
+        {
+        m_anim.SetBool("Run", true);
+        }
+        else
+        {
+            m_anim.SetBool("Run", false);
+        }
 
     }
 
