@@ -31,21 +31,7 @@ public class PlayerController : MonoBehaviour
         // 入力を受け取る
         m_h = Input.GetAxisRaw("Horizontal");
         // 各種入力を受け取る
-        if (jumpCount <= 1)
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                if (isGrand)
-                {
-                    jumpCount++;
-                    m_rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
-                    Debug.Log("ここにジャンプする処理を書く。");
-                }
-            }
-        }
-
-
-
+        Jump();
         // 設定に応じて左右を反転させる
         if (m_flipX)
         {
@@ -57,11 +43,11 @@ public class PlayerController : MonoBehaviour
     {
         // 力を加えるのは FixedUpdate で行う
         m_rb.velocity = new Vector2(m_movePower * m_h,m_rb.velocity.y);
-        if(Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.D))
+        if(Input.GetAxisRaw("Horizontal") != 0)
         {
         m_anim.SetBool("Run", true);
         }
-        else
+        else if(isGrand==false|| Input.GetAxisRaw("Horizontal") == 0)
         {
             m_anim.SetBool("Run", false);
         }
@@ -104,6 +90,28 @@ public class PlayerController : MonoBehaviour
         {
             this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
         }
+    }
+    void Jump()
+    {
+        if (jumpCount <= 1)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                if (isGrand)
+                {
+                    jumpCount++;
+                    m_rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
+                    Debug.Log("ここにジャンプする処理を書く。");
+                }
+                    m_anim.SetBool("Jump", true);
+            }
+                else if(jumpCount ==0)
+                {
+                    m_anim.SetBool("Jump", false);
+                }
+            
+        }
+
     }
 
 }
