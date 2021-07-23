@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    int AttackCount = 0;
     int jumpCount = 0;
     /// <summary>左右移動する力</summary>
     [SerializeField] float m_movePower = 5f;
@@ -117,11 +118,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            m_anim.SetBool("Panch", true);
+            m_anim.SetBool("Punch", true);
         }
         else
         {
-            m_anim.SetBool("Panch", false);
+            m_anim.SetBool("Punch", false);
         }
     }
 
