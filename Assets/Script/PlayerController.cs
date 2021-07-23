@@ -42,15 +42,16 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // 力を加えるのは FixedUpdate で行う
-        m_rb.velocity = new Vector2(m_movePower * m_h,m_rb.velocity.y);
-        if(Input.GetAxisRaw("Horizontal") != 0)
+        m_rb.velocity = new Vector2(m_movePower * m_h, m_rb.velocity.y);
+        if (Input.GetAxisRaw("Horizontal") != 0)
         {
-        m_anim.SetBool("Run", true);
+            m_anim.SetBool("Run", true);
         }
-        else if(isGrand==false|| Input.GetAxisRaw("Horizontal") == 0)
+        else if (isGrand == false || Input.GetAxisRaw("Horizontal") == 0)
         {
             m_anim.SetBool("Run", false);
         }
+        Panch();
 
     }
 
@@ -103,15 +104,25 @@ public class PlayerController : MonoBehaviour
                     m_rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
                     Debug.Log("ここにジャンプする処理を書く。");
                 }
-                    m_anim.SetBool("Jump", true);
+                m_anim.SetBool("Jump", true);
             }
-                else if(jumpCount ==0)
-                {
-                    m_anim.SetBool("Jump", false);
-                }
-            
+            else if (jumpCount == 0)
+            {
+                m_anim.SetBool("Jump", false);
+            }
         }
+    }
 
+    void Panch()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            m_anim.SetBool("Panch", true);
+        }
+        else
+        {
+            m_anim.SetBool("Panch", false);
+        }
     }
 
 }
