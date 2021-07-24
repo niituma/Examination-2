@@ -116,7 +116,8 @@ public class PlayerController : MonoBehaviour
 
     void Panch()
     {
-        if (Input.GetButtonDown("Fire1"))
+        AttackCount++;
+        if (Input.GetKeyDown(KeyCode.F))
         {
             m_anim.SetBool("Punch", true);
         }
