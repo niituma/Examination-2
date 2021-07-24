@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         m_h = Input.GetAxisRaw("Horizontal");
         // 各種入力を受け取る
         Jump();
+        Panch();
         // 設定に応じて左右を反転させる
         if (m_flipX)
         {
@@ -52,7 +53,6 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetBool("Run", false);
         }
-        Panch();
 
     }
 
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
     void Panch()
     {
         AttackCount++;
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("Fire1"))
         {
             m_anim.SetBool("Punch", true);
         }
