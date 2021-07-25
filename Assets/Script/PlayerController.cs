@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_jumpPower = 15f;
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
-    Rigidbody2D m_rb = default;
+    Rigidbody2D rb = default;
     /// <summary>水平方向の入力値</summary>
     float m_h;
     float m_scaleX;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         m_anim = GetComponent<Animator>();
-        m_rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // 力を加えるのは FixedUpdate で行う
-        m_rb.velocity = new Vector2(m_movePower * m_h, m_rb.velocity.y);
+        rb.velocity = new Vector2(m_movePower * m_h, rb.velocity.y);
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             m_anim.SetBool("Run", true);
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
                 if (isGrand)
                 {
                     jumpCount++;
-                    m_rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
+                    rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
                     Debug.Log("ここにジャンプする処理を書く。");
                 }
                 m_anim.SetBool("Jump", true);
@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
 
     void Panch()
     {
+        
         AttackCount++;
         if (Input.GetButtonDown("Fire1"))
         {
