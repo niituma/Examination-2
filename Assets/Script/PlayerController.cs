@@ -108,16 +108,15 @@ public class PlayerController : MonoBehaviour
                     rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
                     Debug.Log("ここにジャンプする処理を書く。");
                 }
-                m_anim.SetBool("Jump", true);
-            }
-            else if (jumpCount == 0)
-            {
-                m_anim.SetBool("Jump", false);
             }
         }
         if (Down == true)
         {
             m_anim.SetBool("Jump", true);
+        }
+        else
+        {
+            m_anim.SetBool("Jump", false);
         }
     }
 
