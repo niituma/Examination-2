@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    int AttackCount = 0;
     int jumpCount = 0;
     /// <summary>左右移動する力</summary>
     [SerializeField] float m_movePower = 5f;
@@ -18,6 +17,7 @@ public class PlayerController : MonoBehaviour
     float m_scaleX;
     private string grandTag = "Grand";
     public bool isGrand = false;
+    public bool Down = false;
     private Vector2 movement;
     Animator m_anim = default;
 
@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
         {
             FlipX(m_h);
         }
-
     }
     private void FixedUpdate()
     {
@@ -58,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Down = false;
         if (collision.tag == grandTag)
         {
             isGrand = true;
@@ -66,11 +66,14 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        Down = true;
         if (collision.tag == grandTag && jumpCount == 2)
         {
             isGrand = false;
         }
+            m_anim.SetBool("Jump", true);
     }
+
     /// <summary>
     /// 左右を反転させる
     /// </summary>
@@ -112,12 +115,15 @@ public class PlayerController : MonoBehaviour
                 m_anim.SetBool("Jump", false);
             }
         }
+        if (Down == true)
+        {
+            m_anim.SetBool("Jump", true);
+        }
     }
 
     void Panch()
     {
-        
-        AttackCount++;
+
         if (Input.GetButtonDown("Fire1"))
         {
             m_anim.SetBool("Punch", true);
