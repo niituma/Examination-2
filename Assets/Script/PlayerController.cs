@@ -131,6 +131,14 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetBool("Punch", false);
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            m_anim.SetBool("Down Nomal Attack", true);
+        }
+        else
+        {
+            m_anim.SetBool("Down Nomal Attack", false);
+        }
     }
 
 }
