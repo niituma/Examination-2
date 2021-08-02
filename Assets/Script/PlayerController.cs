@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrand = false;
         }
-            m_anim.SetBool("Jump", true);
+        m_anim.SetBool("Jump", true);
     }
 
     /// <summary>
@@ -139,6 +139,15 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetBool("Down Nomal Attack", false);
         }
+    }
+
+    void Stopmove()
+    {
+        m_movePower = 0;
+    }
+    void Removed()
+    {
+        m_movePower = 10;
     }
 
 }
