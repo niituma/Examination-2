@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
         m_h = Input.GetAxisRaw("Horizontal");
         // 各種入力を受け取る
         Jump();
-        Panch();
         // 設定に応じて左右を反転させる
         if (m_flipX)
         {
@@ -66,7 +65,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Down = true;
+            Down = true;
         if (collision.tag == grandTag && jumpCount == 2)
         {
             isGrand = false;
@@ -106,7 +105,7 @@ public class PlayerController : MonoBehaviour
                 {
                     jumpCount++;
                     rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
-                    Debug.Log("ここにジャンプする処理を書く。");
+                    Debug.Log("ジャンプ");
                 }
             }
         }
@@ -120,27 +119,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Panch()
-    {
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            m_anim.SetBool("Punch", true);
-        }
-        else
-        {
-            m_anim.SetBool("Punch", false);
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            m_anim.SetBool("Down Nomal Attack", true);
-        }
-        else
-        {
-            m_anim.SetBool("Down Nomal Attack", false);
-        }
-    }
-
     void Stopmove()
     {
         m_movePower = 0;
@@ -148,6 +126,10 @@ public class PlayerController : MonoBehaviour
     void Removed()
     {
         m_movePower = 10;
+    }
+    void Downfalse()
+    {
+        Down = false;
     }
 
 }
