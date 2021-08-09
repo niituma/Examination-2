@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
         m_h = Input.GetAxisRaw("Horizontal");
         // 各種入力を受け取る
         Jump();
+        JumpAttack();
         // 設定に応じて左右を反転させる
         if (m_flipX)
         {
@@ -116,6 +117,23 @@ public class PlayerController : MonoBehaviour
         else
         {
             m_anim.SetBool("Jump", false);
+        }
+    }
+
+    void JumpAttack()
+    {
+        if (Down == true && Input.GetButtonDown("Fire1"))
+        {
+            m_anim.SetBool("Jump Attack", true);
+        }
+        else if (Down == false)
+        {
+            m_anim.SetBool("idle", true);
+        }
+        else
+        {
+            m_anim.SetBool("Jump Attack", false);
+            m_anim.SetBool("idle", false);
         }
     }
 
