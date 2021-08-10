@@ -66,12 +66,14 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.tag == grandTag)
+        {
             Down = true;
+        }
         if (collision.tag == grandTag && jumpCount == 2)
         {
             isGrand = false;
         }
-        m_anim.SetBool("Jump", true);
     }
 
     /// <summary>
