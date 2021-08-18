@@ -5,12 +5,16 @@ using UnityEngine;
 public class RabbitController : MonoBehaviour
 {
     int Hitpoint;
+    [SerializeField] float m_Speed = 3;
     private string AttackTag = "Attackpoint";
+    [SerializeField] GameObject Player = default;
     Animator m_anim = default;
+    Rigidbody2D m_rb = default;
 
     private void Start()
     {
         m_anim = GetComponent<Animator>();
+        m_rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
@@ -18,6 +22,8 @@ public class RabbitController : MonoBehaviour
         {
             m_anim.SetBool("Dead", true);
         }
+        this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector3(Player.transform.position.x, Player.transform.position.y), m_Speed * Time.deltaTime);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
