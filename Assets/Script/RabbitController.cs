@@ -5,6 +5,7 @@ using UnityEngine;
 public class RabbitController : MonoBehaviour
 {
     int Hitpoint;
+    [SerializeField] GameObject Player = default;
     private string AttackTag = "Attackpoint";
     Animator m_anim = default;
 
@@ -14,9 +15,9 @@ public class RabbitController : MonoBehaviour
     }
     private void Update()
     {
+        EFlipx();
         if (Hitpoint == 3)
         {
-            Destroy(this.GetComponent<Rabbitmove>());
             m_anim.SetBool("Dead", true);
         }
 
@@ -34,6 +35,7 @@ public class RabbitController : MonoBehaviour
         {
             m_anim.SetBool("Walk", true);
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -49,5 +51,16 @@ public class RabbitController : MonoBehaviour
         Destroy(this.gameObject);
     }
     
+    void EFlipx()
+    {
+        if (this.transform.position.x > Player.transform.position.x)
+        {
+            this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        }
+        if (this.transform.position.x < Player.transform.position.x)
+        {
+            this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        }
+    }
 }
 
