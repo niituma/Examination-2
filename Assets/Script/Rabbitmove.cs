@@ -26,11 +26,11 @@ public class Rabbitmove : MonoBehaviour
         {
         if (this.transform.localScale.x > 0)
         {
-            this.m_rb.AddForce(transform.right * 2000.0f);
+            this.m_rb.AddForce(transform.right * 2000f);
         }
         else
         {
-            this.m_rb.AddForce(transform.right * -2000.0f);
+            this.m_rb.AddForce(transform.right * -2000f);
         }//向きでノックバック方向を判断
         }
     }
