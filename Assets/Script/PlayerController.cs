@@ -59,13 +59,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Down = false;
         if (collision.tag == grandTag)
         {
+            Down = false;
             isGrand = true;
             jumpCount = 0;
         }
-        
+        if(collision.gameObject.name == "EAttack")
+        {
+            Debug.Log("Hit!");
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

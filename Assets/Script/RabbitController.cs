@@ -4,31 +4,35 @@ using UnityEngine;
 
 public class RabbitController : MonoBehaviour
 {
-    int Hitpoint;
+    int Hitpoint = 0;
+    float dis = 0;
+    [SerializeField] float m_Speed = 4f;
     [SerializeField]float Attackcooltime = 0f;
     public bool cooltime = true;
     [SerializeField] GameObject Player = default;
     private string AttackTag = "Attackpoint";
     Animator m_anim = default;
+    Rigidbody2D m_rb = default;
 
 
     private void Start()
     {
         m_anim = GetComponent<Animator>();
+        m_rb = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
+        Vector2 PoseA = Player.transform.position;
+        Vector2 PoseB = this.transform.position;
+        dis = Vector2.Distance(PoseA, PoseB);
+
         EFlipx();
         Attack();
+
         if (Hitpoint == 3)
         {
             m_anim.SetBool("Dead", true);
         }
-        //if (cooltime == true)
-        //{
-        //    Attackcooltime += Time.deltaTime; 
-        //}
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -39,11 +43,24 @@ public class RabbitController : MonoBehaviour
             Debug.Log("攻撃を受けた");
             m_anim.SetBool("Hit", true);
         }
+
         if (collision.tag == "camera")
         {
             m_anim.SetBool("Walk", true);
         }
-        
+
+        if (collision.tag == "Attackpoint")
+        {
+            if (this.transform.localScale.x > 0)
+            {
+                this.m_rb.AddForce(transform.right * 2000f);
+            }
+            else
+            {
+                this.m_rb.AddForce(transform.right * -2000f);
+            }//向きでノックバック方向を判断
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -79,10 +96,8 @@ public class RabbitController : MonoBehaviour
     }
     void Attack()
     {
-        Vector2 PoseA = Player.transform.position;
-        Vector2 PoseB = this.transform.position;
-        float dis = Vector2.Distance(PoseA, PoseB);
-        if (dis <= 4f && Attackcooltime >= 1.5f)
+        
+        if (dis <= 3f && Attackcooltime >= 1.5f)
         {
             m_anim.SetBool("Attack", true);
             Attackcooltime = 0f;
