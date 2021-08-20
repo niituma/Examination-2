@@ -44,7 +44,7 @@ public class RabbitController : MonoBehaviour
             m_anim.SetBool("Hit", true);
         }
 
-        if (collision.tag == "camera")
+        if (collision.gameObject.tag == "camera")
         {
             m_anim.SetBool("Walk", true);
         }

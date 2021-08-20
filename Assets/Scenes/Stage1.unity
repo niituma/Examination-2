@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 24402446}
   - component: {fileID: 24402445}
   - component: {fileID: 24402444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -806,7 +806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1205249645}
   - component: {fileID: 1205249646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: camera
   m_Icon: {fileID: 0}
@@ -949,7 +949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1720907270}
   - component: {fileID: 1720907271}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720907269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03, y: -0.05, z: 0}
+  m_LocalPosition: {x: -1.1, y: -0.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2017334148}
@@ -1403,17 +1403,22 @@ PrefabInstance:
     - target: {fileID: 8729824628894950461, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.75
+      value: 2.62
       objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950461, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2.2
+      value: 2.07
       objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950462, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: m_Name
       value: Rabbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729824628894950462, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8729824628894950460, guid: e844e927a54f89d4e9607370ffbdbd19, type: 3}

@@ -68,7 +68,9 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.name == "EAttack")
         {
             Debug.Log("Hit!");
+            m_anim.SetBool("Hit", true);
         }
+       
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -79,6 +81,10 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == grandTag && jumpCount == 2)
         {
             isGrand = false;
+        }
+        if (collision.gameObject.name == "EAttack")
+        {
+            m_anim.SetBool("Hit", false);
         }
     }
 

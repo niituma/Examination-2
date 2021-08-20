@@ -8,6 +8,7 @@ TagManager:
   - Attackpoint
   - Enemy
   - camera
+  - Air
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Eattack
+  - Enemy
+  - Camera
   - 
   - 
   - 
