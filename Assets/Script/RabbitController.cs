@@ -5,6 +5,7 @@ using UnityEngine;
 public class RabbitController : MonoBehaviour
 {
     int Hitpoint = 0;
+    [SerializeField] int deadpoint = 10;
     float dis = 0;
     [SerializeField] float m_Speed = 4f;
     [SerializeField]float Attackcooltime = 0f;
@@ -29,7 +30,7 @@ public class RabbitController : MonoBehaviour
         EFlipx();
         Attack();
 
-        if (Hitpoint == 3)
+        if (Hitpoint == deadpoint)
         {
             m_anim.SetBool("Dead", true);
         }
@@ -53,11 +54,11 @@ public class RabbitController : MonoBehaviour
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.AddForce(transform.right * 2000f);
+                this.m_rb.AddForce(transform.right * 3000f);
             }
             else
             {
-                this.m_rb.AddForce(transform.right * -2000f);
+                this.m_rb.AddForce(transform.right * -3000f);
             }//向きでノックバック方向を判断
         }
 

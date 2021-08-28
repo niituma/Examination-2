@@ -6,8 +6,11 @@ public class Rabbitmove : MonoBehaviour
 {
     public float m_Speed = 4f;
     [SerializeField] GameObject Player = default;
+    [SerializeField] float limittime = 2f; 
+    float Stoptimer = 0;
     Rigidbody2D m_rb = default;
     float dis;
+    public bool isstop = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +22,18 @@ public class Rabbitmove : MonoBehaviour
         Vector2 PoseA = Player.transform.position;
         Vector2 PoseB = this.transform.position;
         dis = Vector2.Distance(PoseA, PoseB);
-        if(dis <= 3f)
+        if (dis <= 3f && isstop == true)
         {
+            isstop = false;
             m_Speed = 0f;
         }
-        else
+        else if(dis > 3f && isstop == false)
         {
+            isstop = true;
             m_Speed = 4f;
         }
+
+        
     }
     // Update is called once per frame
     private void OnTriggerStay2D(Collider2D collision)
