@@ -1320,6 +1320,16 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 909228136}
+    - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: cooltime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950451, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: m_RootOrder
@@ -1390,6 +1400,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 909228136}
+    - target: {fileID: 8729824628894950454, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950460, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: m_LinearDrag
@@ -1437,4 +1452,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8729824628894950460, guid: e844e927a54f89d4e9607370ffbdbd19, type: 3}
+    - {fileID: 8729824628894950454, guid: e844e927a54f89d4e9607370ffbdbd19, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e844e927a54f89d4e9607370ffbdbd19, type: 3}

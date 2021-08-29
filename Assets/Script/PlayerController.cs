@@ -11,8 +11,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_jumpPower = 15f;
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
-    //パンチの威力
-    [SerializeField] float m_punchPower = 15f;
     Rigidbody2D rb = default;
     /// <summary>水平方向の入力値</summary>
     float m_h;

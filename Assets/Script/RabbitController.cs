@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RabbitController : MonoBehaviour
+public class RabbitController : Enemymove
 {
     int Hitpoint = 0;
     [SerializeField] int deadpoint = 10;
-    float dis = 0;
-    [SerializeField] float m_Speed = 4f;
-    [SerializeField]float Attackcooltime = 0f;
+    [SerializeField] float Attackcooltime = 0f;
     public bool cooltime = true;
-    [SerializeField] GameObject Player = default;
     private string AttackTag = "Attackpoint";
     Animator m_anim = default;
     Rigidbody2D m_rb = default;
@@ -21,13 +18,9 @@ public class RabbitController : MonoBehaviour
         m_anim = GetComponent<Animator>();
         m_rb = GetComponent<Rigidbody2D>();
     }
-    private void Update()
+    private new void Update()
     {
-        Vector2 PoseA = Player.transform.position;
-        Vector2 PoseB = this.transform.position;
-        dis = Vector2.Distance(PoseA, PoseB);
-
-        EFlipx();
+        base.Update();
         Attack();
 
         if (Hitpoint == deadpoint)
@@ -72,8 +65,9 @@ public class RabbitController : MonoBehaviour
             m_anim.SetBool("Walk", false);
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private new void OnTriggerStay2D(Collider2D collision)
     {
+        base.OnTriggerStay2D(collision);
         if (collision.tag == "camera")
         {
             Attackcooltime += Time.deltaTime;
@@ -83,22 +77,11 @@ public class RabbitController : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-    
-    void EFlipx()
-    {
-        if (this.transform.position.x > Player.transform.position.x)
-        {
-            this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
-        }
-        if (this.transform.position.x < Player.transform.position.x)
-        {
-            this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
-        }
-    }
+
     void Attack()
     {
-        
-        if (dis <= 3f && Attackcooltime >= 1.5f)
+
+        if (dis <= 3f && Attackcooltime >= 2.5f)
         {
             m_anim.SetBool("Attack", true);
             Attackcooltime = 0f;
