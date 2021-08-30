@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_jumpPower = 15f;
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
+    [SerializeField] bool Guard = false;
+    [SerializeField] GameObject Effect = default;
     Rigidbody2D rb = default;
     /// <summary>水平方向の入力値</summary>
     float m_h;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
         // 入力を受け取る
         m_h = Input.GetAxisRaw("Horizontal");
         // 各種入力を受け取る
+        Panch();
         Jump();
         JumpAttack();
         // 設定に応じて左右を反転させる
@@ -63,12 +66,19 @@ public class PlayerController : MonoBehaviour
             isGrand = true;
             jumpCount = 0;
         }
-        if(collision.gameObject.name == "EAttack")
+        if(collision.gameObject.name == "EAttack" && Guard == false)
         {
             Debug.Log("Hit!");
             m_anim.SetBool("Hit", true);
         }
-       
+
+        if (collision.gameObject.name == "EAttack" && Guard == true)
+        {
+            Vector3 hitPos = collision.ClosestPoint(this.transform.position);
+            Instantiate(Effect, hitPos, Quaternion.identity);
+            //エフェクト生成処理
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -149,6 +159,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Panch()
+    {
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            m_anim.SetBool("Punch", true);
+        }
+        else
+        {
+            m_anim.SetBool("Punch", false);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            m_anim.SetBool("Down Nomal Attack", true);
+            Stopmove();
+            Guard = true;
+
+        }
+        else
+        {
+            m_anim.SetBool("Down Nomal Attack", false);
+            Removed();
+            Guard = false;
+        }
+    }
 
     void Stopmove()
     {

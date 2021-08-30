@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RabbitController : Enemymove
+public class SkeletonController : Enemymove
 {
-    int RHitpoint = 0;
+    int SHitpoint = 0;
     [SerializeField] int deadpoint = 10;
     [SerializeField] float Attackcooltime = 0f;
     private string AttackTag = "Attackpoint";
@@ -22,9 +22,9 @@ public class RabbitController : Enemymove
         base.Update();
         Attack();
 
-        if (RHitpoint == deadpoint)
+        if (SHitpoint == deadpoint)
         {
-            m_anim.SetBool("Dead", true);
+            m_anim.SetBool("S Dead", true);
         }
     }
 
@@ -32,25 +32,25 @@ public class RabbitController : Enemymove
     {
         if (collision.tag == AttackTag)
         {
-            RHitpoint++;
+            SHitpoint++;
             Debug.Log("攻撃を受けた");
-            m_anim.SetBool("Hit", true);
+            m_anim.SetBool("S Hit", true);
         }
 
         if (collision.gameObject.tag == "camera")
         {
-            m_anim.SetBool("Walk", true);
+            m_anim.SetBool("S Walk", true);
         }
 
         if (collision.tag == "Attackpoint")
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.AddForce(transform.right * 3000f);
+                this.m_rb.AddForce(transform.right * 300f);
             }
             else
             {
-                this.m_rb.AddForce(transform.right * -3000f);
+                this.m_rb.AddForce(transform.right * -300f);
             }//向きでノックバック方向を判断
         }
 
@@ -58,20 +58,20 @@ public class RabbitController : Enemymove
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        m_anim.SetBool("Hit", false);
+        m_anim.SetBool("S Hit", false);
         if (collision.tag == "camera")
         {
-            m_anim.SetBool("Walk", false);
+            m_anim.SetBool("S Walk", false);
         }
     }
-    private new void OnTriggerStay2D(Collider2D collision)
+    private new void OnTriggerStay2D(Collider2D colltion)
     {
-        base.OnTriggerStay2D(collision);
-        if (collision.tag == "camera")
+        base.OnTriggerStay2D(colltion);
+        if (colltion.tag == "camera")
         {
             Attackcooltime += Time.deltaTime;
         }
-        Debug.Log("a");
+        
     }
     void Destroy()
     {
@@ -83,13 +83,12 @@ public class RabbitController : Enemymove
 
         if (dis <= 3f && Attackcooltime >= 2.5f)
         {
-            m_anim.SetBool("Attack", true);
+            m_anim.SetBool("S Attack", true);
             Attackcooltime = 0f;
         }
         else
         {
-            m_anim.SetBool("Attack", false);
+            m_anim.SetBool("S Attack", false);
         }
     }
 }
-
