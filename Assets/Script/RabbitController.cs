@@ -46,11 +46,11 @@ public class RabbitController : Enemymove
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.AddForce(transform.right * 3000f);
+                this.m_rb.AddForce(transform.right * 3500f);
             }
             else
             {
-                this.m_rb.AddForce(transform.right * -3000f);
+                this.m_rb.AddForce(transform.right * -3500f);
             }//向きでノックバック方向を判断
         }
 
@@ -71,7 +71,6 @@ public class RabbitController : Enemymove
         {
             Attackcooltime += Time.deltaTime;
         }
-        Debug.Log("a");
     }
     void Destroy()
     {
@@ -81,7 +80,7 @@ public class RabbitController : Enemymove
     void Attack()
     {
 
-        if (dis <= 3f && Attackcooltime >= 2.5f)
+        if (dis <= Stopdis && Attackcooltime >= 2.5f)
         {
             m_anim.SetBool("Attack", true);
             Attackcooltime = 0f;

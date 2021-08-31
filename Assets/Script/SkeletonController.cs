@@ -46,11 +46,11 @@ public class SkeletonController : Enemymove
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.AddForce(transform.right * 300f);
+                this.m_rb.velocity = (transform.right * 5f);
             }
             else
             {
-                this.m_rb.AddForce(transform.right * -300f);
+                this.m_rb.velocity = (transform.right * -5f);
             }//向きでノックバック方向を判断
         }
 
@@ -81,7 +81,7 @@ public class SkeletonController : Enemymove
     void Attack()
     {
 
-        if (dis <= 3f && Attackcooltime >= 2.5f)
+        if (dis <= Stopdis && Attackcooltime >= 2.5f)
         {
             m_anim.SetBool("S Attack", true);
             Attackcooltime = 0f;

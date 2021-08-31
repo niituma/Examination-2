@@ -66,13 +66,13 @@ public class PlayerController : MonoBehaviour
             isGrand = true;
             jumpCount = 0;
         }
-        if(collision.gameObject.name == "EAttack" && Guard == false)
+        if(collision.tag == "EAttack" && Guard == false)
         {
             Debug.Log("Hit!");
             m_anim.SetBool("Hit", true);
         }
 
-        if (collision.gameObject.name == "EAttack" && Guard == true)
+        if (collision.tag == "EAttack" && Guard == true)
         {
             Vector3 hitPos = collision.ClosestPoint(this.transform.position);
             Instantiate(Effect, hitPos, Quaternion.identity);
@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrand = false;
         }
-        if (collision.gameObject.name == "EAttack")
+        if (collision.tag == "EAttack")
         {
             m_anim.SetBool("Hit", false);
         }

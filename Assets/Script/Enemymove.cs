@@ -7,6 +7,7 @@ public class Enemymove : MonoBehaviour
     [SerializeField] float m_Speed = 4f;
     [SerializeField] float m_RSpeed = 4f;
     [SerializeField] public GameObject Player = default;
+    [SerializeField] public float Stopdis = 3f;
     public float dis;
     public bool isstop = true;
 
@@ -16,12 +17,12 @@ public class Enemymove : MonoBehaviour
         Vector2 PoseA = Player.transform.position;
         Vector2 PoseB = this.transform.position;
         dis = Vector2.Distance(PoseA, PoseB);
-        if (dis <= 3f && isstop == true)
+        if (dis <= Stopdis && isstop == true)
         {
             isstop = false;
             m_Speed = 0f;
         }
-        else if (dis > 3f && isstop == false)
+        else if (dis > Stopdis && isstop == false)
         {
             isstop = true;
             m_Speed = m_RSpeed;
