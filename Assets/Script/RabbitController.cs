@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RabbitController : Enemymove
+public class RabbitController : Enemybasemove
 {
     int RHitpoint = 0;
     [SerializeField] int deadpoint = 10;
@@ -75,6 +75,11 @@ public class RabbitController : Enemymove
     void Destroy()
     {
         Destroy(this.gameObject);
+    }
+
+    public override void Activate()
+    {
+        Debug.Log("Rabbitが近づいている！");
     }
 
     void Attack()

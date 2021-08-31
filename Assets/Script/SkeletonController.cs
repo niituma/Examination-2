@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkeletonController : Enemymove
+public class SkeletonController : Enemybasemove
 {
     int SHitpoint = 0;
     [SerializeField] int deadpoint = 10;
@@ -76,6 +76,11 @@ public class SkeletonController : Enemymove
     void Destroy()
     {
         Destroy(this.gameObject);
+    }
+
+    public override void Activate()
+    {
+        Debug.Log("Skeletonが近づいている！");
     }
 
     void Attack()
