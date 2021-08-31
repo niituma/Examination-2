@@ -31,6 +31,7 @@ public class Enemybasemove : MonoBehaviour
             isstop = true;
             m_Speed = m_RSpeed;
         }
+        //Activate();
         EFlipx();
     }
     // Update is called once per frame
@@ -38,7 +39,6 @@ public class Enemybasemove : MonoBehaviour
     {
         if (collision.tag == "camera")
         {
-            Activate();
             this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Player.transform.position.x, transform.position.y), m_Speed * Time.deltaTime);
         }
     }

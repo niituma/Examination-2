@@ -7,6 +7,7 @@ public class SkeletonController : Enemybasemove
     int SHitpoint = 0;
     [SerializeField] int deadpoint = 10;
     [SerializeField] float Attackcooltime = 0f;
+    [SerializeField] GameObject Item = default;
     private string AttackTag = "Attackpoint";
     Animator m_anim = default;
     Rigidbody2D m_rb = default;
@@ -80,7 +81,8 @@ public class SkeletonController : Enemybasemove
 
     public override void Activate()
     {
-        Debug.Log("Skeletonが近づいている！");
+        Instantiate(Item, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     void Attack()
