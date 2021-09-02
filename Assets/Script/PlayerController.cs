@@ -13,15 +13,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool m_flipX = false;
     [SerializeField] bool Guard = false;
     [SerializeField] GameObject Effect = default;
-    Rigidbody2D rb = default;
     /// <summary>水平方向の入力値</summary>
     float m_h;
-    float m_scaleX;
     private string grandTag = "Grand";
-    public bool isGrand = false;
-    public bool Down = false;
+    public bool isGround = false;
     private Vector2 movement;
     Animator m_anim = default;
+    Rigidbody2D rb = default;
 
     void Start()
     {
@@ -33,7 +31,6 @@ public class PlayerController : MonoBehaviour
     {
         // 入力を受け取る
         m_h = Input.GetAxisRaw("Horizontal");
-        m_anim.SetFloat("SpeedY", rb.velocity.y);
         // 各種入力を受け取る
         Panch();
         Jump();
@@ -44,15 +41,23 @@ public class PlayerController : MonoBehaviour
             FlipX(m_h);
         }
     }
+    private void LateUpdate()
+    {
+        if (m_anim)
+        {
+            m_anim.SetFloat("SpeedY", rb.velocity.y);
+            m_anim.SetBool("isGround", isGround);
+        }
+    }
     private void FixedUpdate()
     {
         // 力を加えるのは FixedUpdate で行う
         rb.velocity = new Vector2(m_movePower * m_h, rb.velocity.y);
-        if (Input.GetAxisRaw("Horizontal") != 0)
+        if (Input.GetAxisRaw("Horizontal") != 0 && isGround)
         {
             m_anim.SetBool("Run", true);
         }
-        else if (isGrand == false || Input.GetAxisRaw("Horizontal") == 0)
+        else if (!isGround || Input.GetAxisRaw("Horizontal") == 0)
         {
             m_anim.SetBool("Run", false);
         }
@@ -63,8 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == grandTag)
         {
-            Down = false;
-            isGrand = true;
+            isGround = true;
             jumpCount = 0;
         }
         if(collision.tag == "EAttack" && Guard == false)
@@ -83,14 +87,12 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        
         if (collision.tag == grandTag)
         {
-            Down = true;
+            isGround = false;
         }
-        if (collision.tag == grandTag && jumpCount == 2)
-        {
-            isGrand = false;
-        }
+
         if (collision.tag == "EAttack")
         {
             m_anim.SetBool("Hit", false);
@@ -108,7 +110,6 @@ public class PlayerController : MonoBehaviour
          * 左右を反転させるには、Transform:Scale:X に -1 を掛ける。
          * Sprite Renderer の Flip:X を操作しても反転する。
          * */
-        m_scaleX = this.transform.localScale.x;
 
         if (horizontal > 0)
         {
@@ -121,42 +122,26 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        if (jumpCount <= 1)
+        if (jumpCount < 2)
         {
             if (Input.GetButtonDown("Jump"))
             {
-                if (isGrand)
-                {
                     jumpCount++;
                     rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
                     Debug.Log("ジャンプ");
-                }
             }
-        }
-        if (Down == true)
-        {
-            m_anim.SetBool("Jump", true);
-        }
-        else
-        {
-            m_anim.SetBool("Jump", false);
         }
     }
 
     void JumpAttack()
     {
-        if (Down == true && Input.GetButtonDown("Fire1"))
+        if (!isGround && Input.GetButtonDown("Fire1"))
         {
             m_anim.SetBool("Jump Attack", true);
-        }
-        else if (Down == false)
-        {
-            m_anim.SetBool("idle", true);
         }
         else
         {
             m_anim.SetBool("Jump Attack", false);
-            m_anim.SetBool("idle", false);
         }
     }
 
@@ -171,32 +156,27 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetBool("Punch", false);
         }
+
         if (Input.GetKey(KeyCode.S))
         {
             m_anim.SetBool("Gurad", true);
-            Stopmove();
             Guard = true;
-
+            Stopmove();
         }
         else
         {
             m_anim.SetBool("Gurad", false);
-            Removed();
             Guard = false;
         }
     }
 
     void Stopmove()
     {
-        m_movePower = 0;
+        m_movePower = 0f;
     }
     void Removed()
     {
-        m_movePower = 10;
-    }
-    void Downfalse()
-    {
-        Down = false;
+        m_movePower = 10f;
     }
 
 }
