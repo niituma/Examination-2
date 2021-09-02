@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         // 入力を受け取る
         m_h = Input.GetAxisRaw("Horizontal");
+        m_anim.SetFloat("SpeedY", rb.velocity.y);
         // 各種入力を受け取る
         Panch();
         Jump();
@@ -172,14 +173,14 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.S))
         {
-            m_anim.SetBool("Down Nomal Attack", true);
+            m_anim.SetBool("Gurad", true);
             Stopmove();
             Guard = true;
 
         }
         else
         {
-            m_anim.SetBool("Down Nomal Attack", false);
+            m_anim.SetBool("Gurad", false);
             Removed();
             Guard = false;
         }
