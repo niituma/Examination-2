@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - camera
   - EAttack
+  - Air
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Camera
   - Epos
   - Player
-  - 
-  - 
+  - Ground
+  - Attackpoint
   - 
   - 
   - 

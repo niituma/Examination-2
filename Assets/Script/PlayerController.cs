@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
     [SerializeField] bool Guard = false;
+
     [SerializeField] GameObject Effect = default;
     /// <summary>水平方向の入力値</summary>
     float m_h;
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
             isGround = true;
             jumpCount = 0;
         }
-        if(collision.tag == "EAttack" && Guard == false)
+        if (collision.tag == "EAttack" && Guard == false)
         {
             Debug.Log("Hit!");
             m_anim.SetBool("Hit", true);
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+
         if (collision.tag == grandTag)
         {
             isGround = false;
@@ -122,15 +123,17 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
+        Vector2 velocity = rb.velocity;
         if (jumpCount < 2)
         {
             if (Input.GetButtonDown("Jump"))
             {
-                    jumpCount++;
-                    rb.AddForce(Vector2.up * m_jumpPower, ForceMode2D.Impulse);
-                    Debug.Log("ジャンプ");
+                jumpCount++;
+                velocity.y = m_jumpPower;
+                Debug.Log("ジャンプ");
             }
         }
+        rb.velocity = velocity;
     }
 
     void JumpAttack()
@@ -163,10 +166,11 @@ public class PlayerController : MonoBehaviour
             Guard = true;
             Stopmove();
         }
-        else
+        else if (Input.GetKeyUp(KeyCode.S))
         {
             m_anim.SetBool("Gurad", false);
             Guard = false;
+            Removed();
         }
     }
 
