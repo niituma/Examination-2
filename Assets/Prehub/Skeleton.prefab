@@ -222,6 +222,7 @@ MonoBehaviour:
   isstop: 1
   deadpoint: 10
   Attackcooltime: 0
+  Item: {fileID: 1593016526271573589, guid: 3e485f1f7c9583e48a91b7c2701f06e2, type: 3}
 --- !u!114 &4827842755449035898
 MonoBehaviour:
   m_ObjectHideFlags: 0
