@@ -5,6 +5,7 @@ using UnityEngine;
 public class RabbitController : Enemybasemove
 {
     int RHitpoint = 0;
+    [SerializeField] float Attacktime = 2.5f;
     [SerializeField] int deadpoint = 10;
     [SerializeField] float Attackcooltime = 0f;
     [SerializeField] GameObject Item = default;
@@ -88,7 +89,7 @@ public class RabbitController : Enemybasemove
     void Attack()
     {
 
-        if (dis <= Stopdis && Attackcooltime >= 2.5f)
+        if (dis <= Stopdis && Attackcooltime >= Attacktime)
         {
             m_anim.SetBool("Attack", true);
             Attackcooltime = 0f;
