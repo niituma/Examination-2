@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_jumpPower = 15f;
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
-    [SerializeField] bool Guard = false;
+    [SerializeField] public bool Guard = false;
 
     [SerializeField] GameObject Effect = default;
     /// <summary>水平方向の入力値</summary>
@@ -182,6 +182,10 @@ public class PlayerController : MonoBehaviour
     void Removed()
     {
         m_movePower = 10f;
+    }
+    void Hitfalse()
+    {
+        m_anim.SetBool("Hit", false);
     }
 
 }

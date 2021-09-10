@@ -11,6 +11,9 @@ public class PbulletMove : MonoBehaviour
     [SerializeField] float m_amplitube = 1.5f;
     [SerializeField] float m_SpeedY = 3f;
     [SerializeField] float m_SpeedX = 3f;
+        GameObject Plant = default;
+        GameObject Player = default;
+    float posX;
     Vector2 m_initialpostion;
     float m_timer;
     private GameObject Gunman;
@@ -19,6 +22,8 @@ public class PbulletMove : MonoBehaviour
     {
         m_initialpostion = this.transform.position;
         Destroy(this.gameObject, m_lifeTime);
+        Player = GameObject.Find("Player");
+        Plant = GameObject.Find("Plant");
     }
 
     // Update is called once per frame
@@ -27,8 +32,18 @@ public class PbulletMove : MonoBehaviour
         m_timer += Time.deltaTime;
         float posY = Mathf.Sin(m_timer * m_SpeedY) * m_amplitube;
         float posX = m_timer * m_SpeedX;
-        Vector2 pos = m_initialpostion + new Vector2(posX,posY);
-        transform.position = pos;
+        if (Plant.transform.position.x > Player.transform.position.x)
+        {
+            Debug.Log("a");
+            this.transform.position = m_initialpostion + new Vector2(-1 * posX, posY);
+
+        }
+        if (Plant.transform.position.x < Player.transform.position.x)
+        {
+            this.transform.position = m_initialpostion + new Vector2(posX, posY);
+            Debug.Log("b");
+
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

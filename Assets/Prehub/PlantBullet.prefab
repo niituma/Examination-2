@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6200015319376190469}
   - component: {fileID: 8703521009567121089}
   - component: {fileID: 1989104746}
+  - component: {fileID: -2635781474349256798}
   m_Layer: 8
   m_Name: PlantBullet
   m_TagString: EAttack
@@ -137,3 +138,26 @@ MonoBehaviour:
   m_amplitube: 2
   m_SpeedY: 3
   m_SpeedX: 1.7
+  Player: {fileID: 4128613543623502578, guid: 7dfb7210286492d47b8cb99ffcf9d3c9, type: 3}
+  Plant: {fileID: 4772955241898660140, guid: d81f5c1aa04a20a41b1bc141f7e575b5, type: 3}
+--- !u!50 &-2635781474349256798
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200015319376190470}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

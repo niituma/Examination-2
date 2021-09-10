@@ -18,9 +18,12 @@ public class Enemybasemove : MonoBehaviour
 
     public void Update()
     {
-        Vector2 PoseA = Player.transform.position;
+        if(Player)
+        {
+            Vector2 PoseA = (Vector2)(Player?.transform.position);
         Vector2 PoseB = this.transform.position;
         dis = Vector2.Distance(PoseA, PoseB);
+        }
         if (dis <= Stopdis && isstop == true)
         {
             isstop = false;
@@ -53,6 +56,8 @@ public class Enemybasemove : MonoBehaviour
     }
     void EFlipx()
     {
+        if (Player)
+        {
         if (this.transform.position.x > Player.transform.position.x)
         {
             this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
@@ -60,6 +65,7 @@ public class Enemybasemove : MonoBehaviour
         if (this.transform.position.x < Player.transform.position.x)
         {
             this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        }
         }
     }
 }
