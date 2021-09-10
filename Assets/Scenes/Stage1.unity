@@ -4538,6 +4538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Deadplayer: {fileID: 4986154791837459852, guid: b5415c3273456c04dbec0422ec6370a5,
     type: 3}
+  cameracollider: {fileID: 1205249644}
   slider: {fileID: 1159875997}
 --- !u!4 &926354427 stripped
 Transform:

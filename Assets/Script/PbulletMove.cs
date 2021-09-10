@@ -10,40 +10,34 @@ public class PbulletMove : MonoBehaviour
     [SerializeField] float m_lifeTime = 5f;
     [SerializeField] float m_amplitube = 1.5f;
     [SerializeField] float m_SpeedY = 3f;
-    [SerializeField] float m_SpeedX = 3f;
-        GameObject Plant = default;
-        GameObject Player = default;
-    float posX;
-    Vector2 m_initialpostion;
     float m_timer;
-    private GameObject Gunman;
+    GameObject Plant = default;
+    GameObject Player = default;
+    Vector2 m_initialpostion;
+    Rigidbody2D m_rb = default;
     // Start is called before the first frame update
     void Start()
     {
+        m_rb = GetComponent<Rigidbody2D>();
         m_initialpostion = this.transform.position;
         Destroy(this.gameObject, m_lifeTime);
         Player = GameObject.Find("Player");
         Plant = GameObject.Find("Plant");
+        if (Plant?.transform.position.x > Player?.transform.position.x)
+        {
+            m_speed *= -1;
+        }
+        if (Plant?.transform.position.x < Player?.transform.position.x)
+        {
+            m_speed *= 1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
         m_timer += Time.deltaTime;
-        float posY = Mathf.Sin(m_timer * m_SpeedY) * m_amplitube;
-        float posX = m_timer * m_SpeedX;
-        if (Plant.transform.position.x > Player.transform.position.x)
-        {
-            Debug.Log("a");
-            this.transform.position = m_initialpostion + new Vector2(-1 * posX, posY);
-
-        }
-        if (Plant.transform.position.x < Player.transform.position.x)
-        {
-            this.transform.position = m_initialpostion + new Vector2(posX, posY);
-            Debug.Log("b");
-
-        }
+        m_rb.velocity = new Vector2(m_speed, Mathf.Sin(m_timer * m_SpeedY) * m_amplitube);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

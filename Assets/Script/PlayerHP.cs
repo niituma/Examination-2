@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerHP : MonoBehaviour
 {
     [SerializeField] GameObject Deadplayer = default;
+    [SerializeField] GameObject cameracollider = default;
     //最大HPと現在のHP。
     int maxHp = 155;
     int currentHp;
@@ -29,6 +30,7 @@ public class PlayerHP : MonoBehaviour
     {
         if(slider.value <= 0)
         {
+            Destroy(cameracollider.GetComponent<BoxCollider2D>());
             Instantiate(Deadplayer, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
         }

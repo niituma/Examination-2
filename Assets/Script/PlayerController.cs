@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == "EAttack" && Guard == true)
         {
-            Vector3 hitPos = collision.ClosestPoint(this.transform.position);
+            Vector3 hitPos = collision.bounds.ClosestPoint(this.transform.position);
             Instantiate(Effect, hitPos, Quaternion.identity);
             //エフェクト生成処理
         }
