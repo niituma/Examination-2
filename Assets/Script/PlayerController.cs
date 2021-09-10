@@ -74,9 +74,10 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.tag == "EAttack" && Guard == false)
         {
-            Debug.Log("Hit!");
             m_anim.SetBool("Hit", true);
+            Debug.Log("Hit!");
         }
+        
 
         if (collision.tag == "EAttack" && Guard == true)
         {
