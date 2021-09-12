@@ -11,7 +11,7 @@ public class AttackEffect : MonoBehaviour
     {
         if(other.tag == "Attackpoint")
         {
-        Vector3 hitPos = other.ClosestPoint(this.transform.position);
+        Vector3 hitPos = other.bounds.ClosestPoint(this.transform.position);
         Instantiate(Effect, hitPos, Quaternion.identity);
         //エフェクト生成処理
         }

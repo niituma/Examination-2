@@ -9,6 +9,8 @@ public class PlantController : MonoBehaviour
     [SerializeField] GameObject Bullet = default;
     [SerializeField] Transform Mazzle = default;
     [SerializeField] public GameObject Player = default;
+    [SerializeField] int deadpoint = 5;
+    int SHitpoint = 0;
     Animator m_anim = default;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,23 @@ public class PlantController : MonoBehaviour
         {
             m_anim.SetBool("PAttack", false);
         }
+        if(SHitpoint == deadpoint)
+        {
+            m_anim.SetBool("Dead", true);
+        }
         EFlipx();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Attackpoint")
+        {
+            SHitpoint += 1;
+            m_anim.SetBool("P Hit", true);
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        m_anim.SetBool("P Hit", false);
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -37,7 +55,6 @@ public class PlantController : MonoBehaviour
         {
             Attackcooltime += Time.deltaTime;
         }
-
     }
     void Firing()
     {
