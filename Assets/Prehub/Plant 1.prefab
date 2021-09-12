@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5168690157099431824}
   - component: {fileID: 398025207330848854}
   - component: {fileID: 153244521}
-  m_Layer: 9
+  m_Layer: 15
   m_Name: Plant 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -187,11 +187,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Attacktime: 5
-  Attackcooltime: 0
+  Attackcooltime: 3
   Bullet: {fileID: 6200015319376190470, guid: aedc2a4c782ccf94f897129d06922053, type: 3}
   Mazzle: {fileID: 5168690158652777198}
-  Player: {fileID: 0}
-  deadpoint: 1
+  deadpoint: 5
 --- !u!114 &398025207330848854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +221,7 @@ MonoBehaviour:
   fragmentLayer: Default
   sortingLayerName: Default
   orderInLayer: 0
-  shatterType: 0
+  shatterType: 1
   fragments: []
 --- !u!1 &5168690158652777193
 GameObject:
