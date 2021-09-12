@@ -24,7 +24,7 @@ public class RabbitController : Enemybasemove
         base.Update();
         Attack();
 
-        if (RHitpoint == deadpoint)
+        if (RHitpoint >= deadpoint)
         {
             m_anim.SetBool("Dead", true);
         }

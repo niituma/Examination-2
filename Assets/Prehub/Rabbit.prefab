@@ -63,6 +63,9 @@ GameObject:
   - component: {fileID: 2017334143}
   - component: {fileID: 2017334149}
   - component: {fileID: 801998808}
+  - component: {fileID: 6336462249597897818}
+  - component: {fileID: 7956311128596967190}
+  - component: {fileID: 311295367086619632}
   m_Layer: 9
   m_Name: Rabbit
   m_TagString: Enemy
@@ -199,6 +202,7 @@ MonoBehaviour:
   Stopdis: 3
   dis: 0
   isstop: 1
+  Attacktime: 2.5
   deadpoint: 10
   Attackcooltime: 0
   Item: {fileID: 2807911769777877439, guid: 56fb0c2889a403941a694090797da763, type: 3}
@@ -342,3 +346,120 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &6336462249597897818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729824628894950462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75953d6b31f574644be1238b08e89b8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allowRuntimeFragmentation: 0
+  extraPoints: 0
+  subshatterSteps: 0
+  fragmentLayer: Default
+  sortingLayerName: Default
+  orderInLayer: 0
+  shatterType: 1
+  fragments: []
+--- !u!60 &7956311128596967190
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729824628894950462}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.75, y: 2.2}
+    newSize: {x: 1.75, y: 2.2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.545, y: -1.0699999}
+      - {x: 0.755, y: -1.02}
+      - {x: 0.84499997, y: -0.90999997}
+      - {x: 0.875, y: -0.84}
+      - {x: 0.875, y: -0.62}
+      - {x: 0.85499996, y: -0.62}
+      - {x: 0.675, y: -0.59}
+      - {x: 0.695, y: -0.53999996}
+      - {x: 0.49499997, y: -0.51}
+      - {x: 0.355, y: -0.29999998}
+      - {x: 0.24499999, y: -0.19}
+      - {x: 0.074999996, y: -0.04}
+      - {x: 0.175, y: -0.03}
+      - {x: 0.265, y: 0.03}
+      - {x: 0.255, y: 0.06}
+      - {x: 0.235, y: 0.08}
+      - {x: 0.044999998, y: 0.13}
+      - {x: 0.16499999, y: 0.16}
+      - {x: 0.235, y: 0.28}
+      - {x: 0.125, y: 0.39}
+      - {x: 0.185, y: 0.48}
+      - {x: 0.325, y: 0.57}
+      - {x: 0.475, y: 0.72999996}
+      - {x: 0.53499997, y: 0.84}
+      - {x: 0.575, y: 0.93}
+      - {x: 0.59499997, y: 0.98999995}
+      - {x: 0.565, y: 1.01}
+      - {x: 0.155, y: 0.78}
+      - {x: 0.24499999, y: 0.91999996}
+      - {x: 0.265, y: 1.1}
+      - {x: 0.205, y: 1.1}
+      - {x: -0.044999998, y: 0.87}
+      - {x: -0.405, y: 0.74}
+      - {x: -0.465, y: 0.76}
+      - {x: -0.60499996, y: 0.7}
+      - {x: -0.645, y: 0.68}
+      - {x: -0.675, y: 0.58}
+      - {x: -0.875, y: 0.48}
+      - {x: -0.875, y: 0.29999998}
+      - {x: -0.835, y: 0.22}
+      - {x: -0.655, y: 0.17}
+      - {x: -0.705, y: 0.01}
+      - {x: -0.655, y: -0.049999997}
+      - {x: -0.695, y: -0.21}
+      - {x: -0.615, y: -0.29}
+      - {x: -0.625, y: -0.48999998}
+      - {x: -0.60499996, y: -0.62}
+      - {x: -0.525, y: -0.77}
+      - {x: -0.415, y: -0.84}
+      - {x: -0.345, y: -0.82}
+      - {x: -0.235, y: -0.84999996}
+      - {x: -0.465, y: -0.87}
+      - {x: -0.525, y: -1.01}
+      - {x: -0.48499998, y: -1.06}
+      - {x: -0.305, y: -1.1}
+      - {x: 0.044999998, y: -1.1}
+      - {x: 0.21499999, y: -1.0799999}
+      - {x: 0.285, y: -1.02}
+      - {x: 0.405, y: -1.01}
+      - {x: 0.475, y: -1.05}
+--- !u!114 &311295367086619632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729824628894950462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1700dbda57a60b24eba2e8ee4f248056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

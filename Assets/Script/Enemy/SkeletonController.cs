@@ -24,7 +24,7 @@ public class SkeletonController : Enemybasemove
         base.Update();
         Attack();
 
-        if (SHitpoint == deadpoint)
+        if (SHitpoint >= deadpoint)
         {
             m_anim.SetBool("S Dead", true);
         }

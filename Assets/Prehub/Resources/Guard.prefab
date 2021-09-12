@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2271091380010477505}
   - component: {fileID: 1566375575805901897}
   - component: {fileID: 4553690438266309275}
-  - component: {fileID: 1266420056}
+  - component: {fileID: 7089742111735831815}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -103,7 +103,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1266420056
+--- !u!114 &7089742111735831815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,6 +112,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9049052399623668500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1700dbda57a60b24eba2e8ee4f248056, type: 3}
+  m_Script: {fileID: 11500000, guid: 512513183e3a9904fb64759b129c7039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
