@@ -21,13 +21,12 @@ public class PbulletMove : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         m_initialpostion = this.transform.position;
         Destroy(this.gameObject, m_lifeTime);
-        Player = GameObject.Find("Player");
-        Plant = GameObject.Find("Plant");
-        if (Plant?.transform.position.x > Player?.transform.position.x)
+        Player = GameObject.FindGameObjectWithTag("Player");
+        if (this?.transform.position.x > Player?.transform.position.x)
         {
             m_speed *= -1;
         }
-        if (Plant?.transform.position.x < Player?.transform.position.x)
+        if (this?.transform.position.x < Player?.transform.position.x)
         {
             m_speed *= 1;
         }

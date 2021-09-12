@@ -4,17 +4,10 @@ using UnityEngine;
 
 public class Barabara : MonoBehaviour
 {
-        private Explodable _explodable;
-    void Explodable()
+    private void Update()
     {
-        _explodable = GetComponent<Explodable>();
-        _explodable.explode();
-        ExplosionForce ef = GameObject.FindObjectOfType<ExplosionForce>();
-        if (ef != null)
-        {
-            ef.doExplosion(transform.position);
-        }
-
+        int crash = Random.Range(1, 4);
+        Debug.Log(crash);
     }
 
 

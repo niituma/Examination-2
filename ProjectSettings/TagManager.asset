@@ -10,6 +10,7 @@ TagManager:
   - camera
   - EAttack
   - Air
+  - Piece
   layers:
   - Default
   - TransparentFX

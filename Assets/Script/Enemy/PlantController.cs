@@ -8,14 +8,15 @@ public class PlantController : MonoBehaviour
     [SerializeField] float Attackcooltime = 0f;
     [SerializeField] GameObject Bullet = default;
     [SerializeField] Transform Mazzle = default;
-    [SerializeField] public GameObject Player = default;
     [SerializeField] int deadpoint = 5;
+    GameObject Player = default;
     int SHitpoint = 0;
     Animator m_anim = default;
     // Start is called before the first frame update
     void Start()
     {
         m_anim = GetComponent<Animator>();
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
