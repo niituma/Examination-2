@@ -11,7 +11,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] GameObject cameracollider = default;
     //最大HPと現在のHP。
     int maxHp = 155;
-    int currentHp;
+    static public int currentHp = 155;
     //Sliderを入れる
     Slider slider;
     private PlayerController Playercon;
@@ -20,8 +20,6 @@ public class PlayerHP : MonoBehaviour
     {
         slider = GameObject.Find("Slider").GetComponent<Slider>();
         Playercon = GetComponent<PlayerController>();
-        //現在のHPを最大HPと同じに。
-        currentHp = maxHp;
         Debug.Log("Start currentHp : " + currentHp);
     }
 

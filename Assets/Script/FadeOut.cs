@@ -8,6 +8,7 @@ public class FadeOut : MonoBehaviour
     [SerializeField] GameObject Panel = default;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.tag == "Player")
         Panel.SetActive(true);
     }
 }

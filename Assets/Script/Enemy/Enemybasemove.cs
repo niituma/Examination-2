@@ -14,6 +14,7 @@ public class Enemybasemove : MonoBehaviour
     {
         Debug.Log("オーバーライドしてください。");
     }
+
     public void Update()
     {
         if(Player)
