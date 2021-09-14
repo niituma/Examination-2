@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    void Fadeout()
     {
-        SceneManager.LoadScene("Boss");
+        SceneManager.LoadScene("Stage2");
     }
 }
