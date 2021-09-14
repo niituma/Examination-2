@@ -6,7 +6,7 @@ public class Enemybasemove : MonoBehaviour
 {
     [SerializeField] float m_Speed = 4f;
     [SerializeField] float m_RSpeed = 4f;
-    [SerializeField] public GameObject Player = default;
+    [SerializeField] GameObject Player = default;
     [SerializeField] public float Stopdis = 3f;
     public float dis;
     public bool isstop = true;
@@ -14,14 +14,12 @@ public class Enemybasemove : MonoBehaviour
     {
         Debug.Log("オーバーライドしてください。");
     }
-
-
     public void Update()
     {
         if(Player)
         {
             Vector2 PoseA = (Vector2)(Player?.transform.position);
-        Vector2 PoseB = this.transform.position;
+            Vector2 PoseB = this.transform.position;
         dis = Vector2.Distance(PoseA, PoseB);
         }
         if (dis <= Stopdis && isstop == true)

@@ -13,14 +13,13 @@ public class PlayerHP : MonoBehaviour
     int maxHp = 155;
     int currentHp;
     //Sliderを入れる
-    public Slider slider;
+    Slider slider;
     private PlayerController Playercon;
 
     void Start()
     {
+        slider = GameObject.Find("Slider").GetComponent<Slider>();
         Playercon = GetComponent<PlayerController>();
-        //Sliderを満タンにする。
-        slider.value = 1;
         //現在のHPを最大HPと同じに。
         currentHp = maxHp;
         Debug.Log("Start currentHp : " + currentHp);
