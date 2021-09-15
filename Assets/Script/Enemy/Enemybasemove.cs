@@ -25,13 +25,13 @@ public class Enemybasemove : MonoBehaviour
         }
         if (dis <= Stopdis && isstop == true)
         {
-            isstop = false;
             m_Speed = 0f;
+            isstop = false;
         }
         else if (dis > Stopdis && isstop == false)
         {
-            isstop = true;
             m_Speed = m_RSpeed;
+            isstop = true;
         }
         //Activate();
         EFlipx();

@@ -48,11 +48,11 @@ public class RabbitController : Enemybasemove
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.AddForce(transform.right * 3000f);
+                this.m_rb.AddForce(transform.right * 3000f,ForceMode2D.Force);
             }
             else
             {
-                this.m_rb.AddForce(transform.right * -3000f);
+                this.m_rb.AddForce(transform.right * -3000f, ForceMode2D.Force);
             }//向きでノックバック方向を判断
         }
 

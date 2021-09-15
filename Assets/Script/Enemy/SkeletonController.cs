@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SkeletonController : Enemybasemove
 {
@@ -9,7 +7,9 @@ public class SkeletonController : Enemybasemove
     [SerializeField] int deadpoint = 10;
     [SerializeField] float Attackcooltime = 0f;
     [SerializeField] GameObject Item = default;
+    [SerializeField] float knockbackForce = 0.5f;
     private string AttackTag = "Attackpoint";
+    private Vector2 knockbackVelocity = Vector2.zero;
     Animator m_anim = default;
     Rigidbody2D m_rb = default;
 
@@ -28,6 +28,7 @@ public class SkeletonController : Enemybasemove
         {
             m_anim.SetBool("S Dead", true);
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,11 +49,11 @@ public class SkeletonController : Enemybasemove
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.velocity = (transform.right * 5f);
+                m_rb.velocity = (transform.right * knockbackForce);
             }
             else
             {
-                this.m_rb.velocity = (transform.right * -5f);
+                m_rb.velocity = (transform.right * -knockbackForce);
             }//向きでノックバック方向を判断
         }
 
