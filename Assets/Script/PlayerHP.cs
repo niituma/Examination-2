@@ -18,14 +18,17 @@ public class PlayerHP : MonoBehaviour
 
     void Start()
     {
-        slider = GameObject.Find("Slider").GetComponent<Slider>();
-        Playercon = GetComponent<PlayerController>();
-        Debug.Log("Start currentHp : " + currentHp);
+        if (slider)
+        {
+            slider = GameObject.Find("Slider").GetComponent<Slider>();
+            Playercon = GetComponent<PlayerController>();
+            Debug.Log("Start currentHp : " + currentHp);
+        }
     }
 
     private void Update()
     {
-        if(slider.value <= 0)
+        if (slider?.value <= 0)
         {
             Destroy(cameracollider.GetComponent<BoxCollider2D>());
             Instantiate(Deadplayer, this.transform.position, this.transform.rotation);
@@ -36,22 +39,25 @@ public class PlayerHP : MonoBehaviour
     //ColliderオブジェクトのIsTriggerにチェック入れること。
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Enemyタグのオブジェクトに触れると発動
-        if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
+        if (slider)
         {
-            //ダメージは1～100の中でランダムに決める。
-            int damage = Random.Range(1, 50);
-            Debug.Log("damage : " + damage);
+            //Enemyタグのオブジェクトに触れると発動
+            if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
+            {
+                //ダメージは1～100の中でランダムに決める。
+                int damage = Random.Range(1, 50);
+                Debug.Log("damage : " + damage);
 
-            //現在のHPからダメージを引く
-            currentHp = currentHp - damage;
-            Debug.Log("After currentHp : " + currentHp);
+                //現在のHPからダメージを引く
+                currentHp = currentHp - damage;
+                Debug.Log("After currentHp : " + currentHp);
 
-            //最大HPにおける現在のHPをSliderに反映。
-            //int同士の割り算は小数点以下は0になるので、
-            //(float)をつけてfloatの変数として振舞わせる。
-            slider.value = (float)currentHp / (float)maxHp; ;
-            Debug.Log("slider.value : " + slider.value);
+                //最大HPにおける現在のHPをSliderに反映。
+                //int同士の割り算は小数点以下は0になるので、
+                //(float)をつけてfloatの変数として振舞わせる。
+                slider.value = (float)currentHp / (float)maxHp; ;
+                Debug.Log("slider.value : " + slider.value);
+            }
         }
     }
 }
