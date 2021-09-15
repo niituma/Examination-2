@@ -9,6 +9,7 @@ public class RabbitController : Enemybasemove
     [SerializeField] int deadpoint = 10;
     [SerializeField] float Attackcooltime = 0f;
     [SerializeField] GameObject Item = default;
+    [SerializeField] float knockbackForce = 0.5f;
     private string AttackTag = "Attackpoint";
     Animator m_anim = default;
     Rigidbody2D m_rb = default;
@@ -48,11 +49,11 @@ public class RabbitController : Enemybasemove
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.AddForce(transform.right * 3000f,ForceMode2D.Force);
+                this.m_rb.AddForce(transform.right * knockbackForce, ForceMode2D.Force);
             }
             else
             {
-                this.m_rb.AddForce(transform.right * -3000f, ForceMode2D.Force);
+                this.m_rb.AddForce(transform.right * -knockbackForce, ForceMode2D.Force);
             }//向きでノックバック方向を判断
         }
 

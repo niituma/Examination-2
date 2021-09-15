@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SkeletonController : Enemybasemove
 {
@@ -50,10 +51,12 @@ public class SkeletonController : Enemybasemove
             if (this.transform.localScale.x > 0)
             {
                 m_rb.velocity = (transform.right * knockbackForce);
+                StartCoroutine("Knockback");
             }
             else
             {
                 m_rb.velocity = (transform.right * -knockbackForce);
+                StartCoroutine("Knockback");
             }//向きでノックバック方向を判断
         }
 
@@ -99,5 +102,10 @@ public class SkeletonController : Enemybasemove
         {
             m_anim.SetBool("S Attack", false);
         }
+    }
+    private IEnumerator Knockback()
+    {
+        yield return new WaitForSeconds(0.5f);
+        m_rb.velocity = Vector2.zero;
     }
 }

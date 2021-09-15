@@ -220,10 +220,10 @@ MonoBehaviour:
   m_Speed: 2.5
   m_RSpeed: 2.5
   Player: {fileID: 0}
-  Stopdis: 4
+  Stopdis: 3.5
   dis: 0
   isstop: 1
-  Attacktime: 2.5
+  Attacktime: 4
   deadpoint: 10
   Attackcooltime: 0
   Item: {fileID: 1593016526271573589, guid: 3e485f1f7c9583e48a91b7c2701f06e2, type: 3}
@@ -479,7 +479,7 @@ MonoBehaviour:
   fragmentLayer: Default
   sortingLayerName: Default
   orderInLayer: 0
-  shatterType: 0
+  shatterType: 1
   fragments: []
 --- !u!114 &5481176346493908745
 MonoBehaviour:

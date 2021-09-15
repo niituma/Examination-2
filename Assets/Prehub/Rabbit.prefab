@@ -202,10 +202,11 @@ MonoBehaviour:
   Stopdis: 3
   dis: 0
   isstop: 1
-  Attacktime: 2.5
+  Attacktime: 3
   deadpoint: 10
   Attackcooltime: 0
   Item: {fileID: 2807911769777877439, guid: 56fb0c2889a403941a694090797da763, type: 3}
+  knockbackForce: 4000
 --- !u!50 &2017334143
 Rigidbody2D:
   serializedVersion: 4
