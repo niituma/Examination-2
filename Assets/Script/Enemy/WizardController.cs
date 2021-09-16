@@ -17,6 +17,10 @@ public class WizardController : MonoBehaviour
     /// <summary>ターゲットにこの距離まで近づいたら「到達した」と判断する距離（単位:メートル）</summary>
     [Tooltip("ターゲットに到達したと認識する距離")]
     [SerializeField] float m_stoppingDistance = 0.05f;
+    [SerializeField] GameObject DeadWizard = default;
+    [SerializeField] int deadpoint = 10;
+    [SerializeField] GameObject WizardFile = default;
+    int WHitpoint = 0;
     float Timer = 0f;
     int x = 0;
     float m_timer;
@@ -48,6 +52,11 @@ public class WizardController : MonoBehaviour
         m_rb.velocity = new Vector2(0, Mathf.Sin(m_timer * m_speedY) * m_amplitube);
         Patrol();
         Attack();
+        if (WHitpoint >= deadpoint)
+        {
+            Destroy(WizardFile.gameObject);
+            Instantiate(DeadWizard, this.transform.position, this.transform.rotation);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -57,6 +66,12 @@ public class WizardController : MonoBehaviour
         }else if(collision.tag == "Target2")
         {
             this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+        }
+        if (collision.tag == "Attackpoint")
+        {
+            WHitpoint++;
+            Debug.Log("W攻撃を受けた");
+            m_anim.SetBool("W Hit", true);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -68,13 +83,15 @@ public class WizardController : MonoBehaviour
             m_anim.SetBool("W Idle", true);
             Attackcooltime += Time.deltaTime;
         }
-        else
-        {
-            m_anim.SetBool("W Idle", false);
-        }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (collision.tag == "camera")
+        {
+            m_anim.SetBool("W Idle", false);
+        }
+            m_anim.SetBool("W Hit", false);
         m_speed = m_RSpeed;
     }
     void EFlipx()

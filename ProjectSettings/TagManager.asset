@@ -12,6 +12,7 @@ TagManager:
   - Piece
   - Target1
   - Target2
+  - Air
   layers:
   - Default
   - TransparentFX

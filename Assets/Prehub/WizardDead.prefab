@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 631626860384735680}
   - component: {fileID: 5222837011868270388}
   - component: {fileID: 4293388690805601575}
+  - component: {fileID: -197019278035644094}
   m_Layer: 0
   m_Name: WizardDead
   m_TagString: Untagged
@@ -95,9 +96,21 @@ Animator:
   m_Controller: {fileID: 9100000, guid: de2edbffd62d5d84badc782e12cf023f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-197019278035644094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017644486536739856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1700dbda57a60b24eba2e8ee4f248056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
