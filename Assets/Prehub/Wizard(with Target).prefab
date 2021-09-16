@@ -179,8 +179,8 @@ MonoBehaviour:
   m_RSpeed: 3
   m_amplitube: 1.5
   m_speedY: 3
-  Attackcooltime: 0
-  Attacktime: 4
+  Attackcooltime: 3
+  Attacktime: 5
   WBullet: {fileID: 4361130892310253883, guid: 2d064d75d6292df45a49e0be236bbd3e, type: 3}
   WMazzle: {fileID: 6963550258748495982}
   m_targets:
