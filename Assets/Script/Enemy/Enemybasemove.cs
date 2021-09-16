@@ -17,11 +17,11 @@ public class Enemybasemove : MonoBehaviour
 
     public void Update()
     {
-        if(Player)
+        if (Player)
         {
             Vector2 PoseA = (Vector2)(Player?.transform.position);
-            Vector2 PoseB = this.transform.position;
-        dis = Vector2.Distance(PoseA, PoseB);
+            Vector3 PoseB = this.transform.position;
+            dis = Vector2.Distance(PoseA, PoseB);
         }
         if (dis <= Stopdis && isstop == true)
         {
@@ -53,18 +53,18 @@ public class Enemybasemove : MonoBehaviour
     {
         m_Speed = m_RSpeed;
     }
-    void EFlipx()
+    public void EFlipx()
     {
         if (Player)
         {
-        if (this.transform.position.x > Player.transform.position.x)
-        {
-            this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
-        }
-        if (this.transform.position.x < Player.transform.position.x)
-        {
-            this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
-        }
+            if (this.transform.position.x > Player.transform.position.x)
+            {
+                this.transform.localScale = new Vector3(Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+            }
+            if (this.transform.position.x < Player.transform.position.x)
+            {
+                this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
+            }
         }
     }
 }

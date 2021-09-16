@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroy : MonoBehaviour
+public class RandomDestroy : MonoBehaviour
 {
     private Explodable _explodable;
     void Des()
@@ -24,6 +24,9 @@ public class Destroy : MonoBehaviour
         {
             Destroy(this.gameObject,0.4f);
         }
-
+    }
+    void DestroyMob()
+    {
+        Destroy(this.gameObject);
     }
 }

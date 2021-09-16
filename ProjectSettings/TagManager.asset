@@ -9,8 +9,9 @@ TagManager:
   - Enemy
   - camera
   - EAttack
-  - Air
   - Piece
+  - Target1
+  - Target2
   layers:
   - Default
   - TransparentFX
