@@ -17,7 +17,7 @@ public class TitleCamera : MonoBehaviour
         float x = transform.position.x;
         x += m_speed * Time.deltaTime;
         transform.position = new Vector3(x, transform.position.y, transform.position.z);
-        if(x >= 150)
+        if(x >= 152.4)
         {
             x = m_firstpos;
             transform.position = new Vector3(x, transform.position.y, transform.position.z);
