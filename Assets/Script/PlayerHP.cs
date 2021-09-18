@@ -9,16 +9,17 @@ public class PlayerHP : MonoBehaviour
 {
     [SerializeField] GameObject Deadplayer = default;
     [SerializeField] GameObject cameracollider = default;
+    [SerializeField] bool muteki = default;
     //最大HPと現在のHP。
-    int maxHp = 155;
-    static public int currentHp = 155;
+    float maxHp = 155;
+    static public float currentHp = 155;
     //Sliderを入れる
     Slider slider;
     private PlayerController Playercon;
 
     void Start()
     {
-            slider = GameObject.Find("Slider").GetComponent<Slider>();
+        slider = GameObject.Find("Slider").GetComponent<Slider>();
         if (slider)
         {
             Playercon = GetComponent<PlayerController>();
@@ -39,7 +40,7 @@ public class PlayerHP : MonoBehaviour
     //ColliderオブジェクトのIsTriggerにチェック入れること。
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (slider)
+        if (slider&&!muteki)
         {
             //Enemyタグのオブジェクトに触れると発動
             if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
@@ -58,6 +59,14 @@ public class PlayerHP : MonoBehaviour
                 slider.value = (float)currentHp / (float)maxHp; ;
                 Debug.Log("slider.value : " + slider.value);
             }
+        }
+    }
+    public void HitLife(float life)
+    {
+        if (!muteki)
+        {
+        currentHp -= life * Time.deltaTime;
+        slider.value = (float)currentHp / (float)maxHp; ;
         }
     }
 }
