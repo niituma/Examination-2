@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
         }
         
 
-        if (collision.tag == "EAttack" && Guard == true)
+        if (collision.tag == "EAttack" && Guard)
         {
             Vector3 hitPos = collision.bounds.ClosestPoint(this.transform.position);
             Instantiate(Effect, hitPos, Quaternion.identity);
@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
             m_anim.SetBool("Punch", false);
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && isGround)
         {
             m_anim.SetBool("Gurad", true);
             Guard = true;

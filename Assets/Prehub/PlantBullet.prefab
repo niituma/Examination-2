@@ -137,6 +137,8 @@ MonoBehaviour:
   m_lifeTime: 15
   m_amplitube: 6.97
   m_SpeedY: 4.42
+  PBulletHitEff: {fileID: 149649628314069535, guid: 1f3bf9b53c6603f43819a0bddcda0b45,
+    type: 3}
 --- !u!50 &-2635781474349256798
 Rigidbody2D:
   serializedVersion: 4

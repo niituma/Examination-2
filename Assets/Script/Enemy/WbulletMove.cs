@@ -6,6 +6,7 @@ public class WbulletMove : MonoBehaviour
 {
     /// <summary>弾の生存期間（秒）</summary>
     [SerializeField] float m_lifeTime = 5f;
+    [SerializeField] GameObject WBulletHitEff = default;
     GameObject Player;
     public float Speed;
 
@@ -25,6 +26,7 @@ public class WbulletMove : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Instantiate(WBulletHitEff, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }

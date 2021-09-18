@@ -10,6 +10,7 @@ public class PbulletMove : MonoBehaviour
     [SerializeField] float m_lifeTime = 5f;
     [SerializeField] float m_amplitube = 1.5f;
     [SerializeField] float m_SpeedY = 3f;
+    [SerializeField] GameObject PBulletHitEff = default;
     float m_timer;
     GameObject Plant = default;
     GameObject Player = default;
@@ -42,6 +43,7 @@ public class PbulletMove : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Instantiate(PBulletHitEff, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
