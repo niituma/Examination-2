@@ -19,9 +19,9 @@ public class PlayerHP : MonoBehaviour
 
     void Start()
     {
-        slider = GameObject.Find("Slider").GetComponent<Slider>();
         if (slider)
         {
+            slider = GameObject.Find("Slider").GetComponent<Slider>();
             Playercon = GetComponent<PlayerController>();
             Debug.Log("Start currentHp : " + currentHp);
         }
