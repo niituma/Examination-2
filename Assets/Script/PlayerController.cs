@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     int jumpCount = 0;
     /// <summary>左右移動する力</summary>
     [SerializeField] float m_movePower = 5f;
+    /// <summary>再度移動する力/// </summary>
+    float m_removePower = 0;
     /// <summary>ジャンプする力</summary>
     [SerializeField] float m_jumpPower = 15f;
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         m_anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        m_removePower = m_movePower;
     }
 
     void Update()
@@ -181,7 +184,7 @@ public class PlayerController : MonoBehaviour
     }
     void Removed()
     {
-        m_movePower = 10f;
+        m_movePower = m_removePower;
     }
     void Hitfalse()
     {

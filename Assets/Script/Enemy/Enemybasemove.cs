@@ -53,6 +53,13 @@ public class Enemybasemove : MonoBehaviour
     {
         m_Speed = m_RSpeed;
     }
+    void Tracking()
+    {
+        if(GetComponent<RabbitController>())
+        Destroy(GetComponent<RabbitController>());
+        if(GetComponent<SkeletonController>())
+        Destroy(GetComponent<SkeletonController>());
+    }
     public void EFlipx()
     {
         if (Player)

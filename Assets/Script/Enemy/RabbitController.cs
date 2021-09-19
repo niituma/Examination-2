@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RabbitController : Enemybasemove
@@ -49,11 +48,13 @@ public class RabbitController : Enemybasemove
         {
             if (this.transform.localScale.x > 0)
             {
-                this.m_rb.AddForce(transform.right * knockbackForce, ForceMode2D.Force);
+                this.m_rb.AddForce(transform.right * knockbackForce);
+                StartCoroutine("Knockback");
             }
             else
             {
-                this.m_rb.AddForce(transform.right * -knockbackForce, ForceMode2D.Force);
+                this.m_rb.AddForce(transform.right * -knockbackForce);
+                StartCoroutine("Knockback");
             }//向きでノックバック方向を判断
         }
 
@@ -99,6 +100,11 @@ public class RabbitController : Enemybasemove
         {
             m_anim.SetBool("Attack", false);
         }
+    }
+    private IEnumerator Knockback()
+    {
+        yield return new WaitForSeconds(0.5f);
+        m_rb.velocity = Vector2.zero;
     }
 }
 
