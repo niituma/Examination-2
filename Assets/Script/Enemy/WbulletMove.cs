@@ -20,6 +20,7 @@ public class WbulletMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Player)
         this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Player.transform.position.x, Player.transform.position.y + 3), Speed * Time.deltaTime);
     }
     private void OnTriggerEnter2D(Collider2D collision)

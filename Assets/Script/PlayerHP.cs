@@ -5,9 +5,10 @@ public class PlayerHP : MonoBehaviour
 {
     [SerializeField] GameObject Deadplayer = default;
     [SerializeField] GameObject cameracollider = default;
+    [SerializeField] bool HPOnOff = true;
     [SerializeField] bool muteki = default;
     //最大HPと現在のHP。
-    float maxHp = 155;
+    public float maxHp = 155;
     static public float currentHp = 155;
     //Sliderを入れる
     Slider slider;
@@ -15,7 +16,16 @@ public class PlayerHP : MonoBehaviour
 
     void Start()
     {
-        slider = GameObject.Find("Slider").GetComponent<Slider>();
+
+        if (HPOnOff)
+            slider = GameObject.Find("Slider").GetComponent<Slider>();
+
+        if (currentHp < 0)
+        {
+            currentHp += maxHp;
+            slider.value = 1;
+        }
+
         if (slider)
         {
             Playercon = GetComponent<PlayerController>();
@@ -72,5 +82,10 @@ public class PlayerHP : MonoBehaviour
             currentHp -= life;
             slider.value = (float)currentHp / (float)maxHp; ;
         }
+    }
+    public void AddLife(float life)
+    {
+        currentHp += life;
+        slider.value = (float)currentHp / (float)maxHp; ;
     }
 }

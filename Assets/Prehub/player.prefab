@@ -1587,7 +1587,8 @@ MonoBehaviour:
   Deadplayer: {fileID: 4986154791837459852, guid: b5415c3273456c04dbec0422ec6370a5,
     type: 3}
   cameracollider: {fileID: 0}
-  muteki: 1
+  HPOnOff: 1
+  muteki: 0
 --- !u!1 &4616413110211203301
 GameObject:
   m_ObjectHideFlags: 0
