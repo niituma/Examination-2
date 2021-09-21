@@ -10,7 +10,7 @@ public class Poison : MonoBehaviour
         if(collision.tag == "Player")
         {
         Debug.Log("poison");
-        FindObjectOfType<PlayerHP>().HitLife(m_poisondamage);
+        FindObjectOfType<PlayerHP>().HitPoisonLife(m_poisondamage);
         }
     }
 }

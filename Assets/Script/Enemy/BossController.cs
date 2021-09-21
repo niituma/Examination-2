@@ -14,11 +14,15 @@ public class BossController : MonoBehaviour
     [SerializeField] float backmovespeed = 0.3f;
     [SerializeField] float downspeed = 0.08f;
     [SerializeField] float attack2movespeed = 5f;
+    [SerializeField] float attack2removespeed = 7f;
     [SerializeField] GameObject m_laser = default;
     GameObject Attack2pos = default;
+    GameObject Attack2repos = default;
+    GameObject Attack2repos2 = default;
     GameObject Player = default;
     bool Skill = default;
     bool ismoving2 = default;
+    bool isremoving2 = default;
     bool ismoving3 = default;
     bool backmove = default;
     bool Rebackmove = default;
@@ -33,14 +37,19 @@ public class BossController : MonoBehaviour
         m_rb = GetComponent<Rigidbody2D>();
         Player = GameObject.Find("Player");
         Attack2pos = GameObject.Find("Attack2Pos");
+        Attack2repos = GameObject.Find("Attackrepos");
+        Attack2repos2 = GameObject.Find("Attackrepos2");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 PoseA = (Vector2)(Player?.transform.position);
-        Vector3 PoseB = this.transform.position;
-        m_dis = Vector2.Distance(PoseA, PoseB);
+        if (Player)
+        {
+            Vector2 PoseA = (Vector2)(Player?.transform.position);
+            Vector3 PoseB = this.transform.position;
+            m_dis = Vector2.Distance(PoseA, PoseB);
+        }
 
 
         if (!Skill)
@@ -49,6 +58,14 @@ public class BossController : MonoBehaviour
 
         if (ismoving2)
             this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Attack2pos.transform.position.x, Attack2pos.transform.position.y + 3), attack2movespeed * Time.deltaTime);
+
+        if (isremoving2)
+        {
+            if (this.transform.localScale.x > 0)
+                this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Attack2repos.transform.position.x, Attack2repos.transform.position.y + 3), attack2removespeed * Time.deltaTime);
+            else
+                this.transform.position = Vector2.MoveTowards(this.transform.position, new Vector2(Attack2repos2.transform.position.x, Attack2repos2.transform.position.y + 3), attack2removespeed * Time.deltaTime);
+        }
 
         Attack1();
         Attack23();
@@ -77,9 +94,7 @@ public class BossController : MonoBehaviour
     {
         if (m_attack23cooltime >= m_attack23time)
         {
-            Skill = true;
-            m_attack23cooltime = 0f;
-            int Attack = 3;// Random.Range(1, 3);
+            int Attack = Random.Range(1, 3);
             if (Attack == 1)
             {
                 ismoving2 = true;
@@ -96,6 +111,11 @@ public class BossController : MonoBehaviour
             m_anim.SetBool("Attack3", false);
         }
     }
+    void Skilltrue()
+    {
+        Skill = true;
+        m_attack23cooltime = 0f;
+    }
     void Skillfalse()
     {
         Skill = false;
@@ -103,6 +123,14 @@ public class BossController : MonoBehaviour
     void AttackMovefalse()
     {
         ismoving2 = false;
+    }
+    void AttackReMovetrue()
+    {
+        isremoving2 = true;
+    }
+    void AttackReMovefalse()
+    {
+        isremoving2 = false;
     }
     void Turn()
     {

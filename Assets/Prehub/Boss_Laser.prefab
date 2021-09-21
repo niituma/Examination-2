@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4194163571086382485}
   - component: {fileID: 134109454837965352}
+  - component: {fileID: 5880455501804681621}
   m_Layer: 8
   m_Name: GameObject
-  m_TagString: EAttack
+  m_TagString: BAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57,6 +58,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 20}
   m_EdgeRadius: 0
+--- !u!114 &5880455501804681621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3845375376523398938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e506a9fe6c7254dab2fdddb1c1751f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damage: 10
 --- !u!1 &6177746178149241536
 GameObject:
   m_ObjectHideFlags: 0

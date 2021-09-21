@@ -13,6 +13,7 @@ TagManager:
   - Target1
   - Target2
   - Air
+  - BAttack
   layers:
   - Default
   - TransparentFX
