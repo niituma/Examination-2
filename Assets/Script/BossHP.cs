@@ -1,34 +1,27 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHP : MonoBehaviour
+public class BossHP : MonoBehaviour
 {
-    [SerializeField] GameObject Deadplayer = default;
-    [SerializeField] GameObject cameracollider = default;
-    [SerializeField] bool muteki = default;
     //最大HPと現在のHP。
-    float maxHp = 155;
-    static public float currentHp = 155;
+    float maxHp = 2000;
+    float currentHp;
     //Sliderを入れる
-    Slider slider;
+    [SerializeField] Slider slider;
     private PlayerController Playercon;
 
     void Start()
     {
-        slider = GameObject.Find("Slider").GetComponent<Slider>();
-        if (slider)
-        {
-            Playercon = GetComponent<PlayerController>();
-            Debug.Log("Start currentHp : " + currentHp);
-        }
+        slider.value = 1;
+        currentHp = maxHp;
+        Debug.Log("Start currentHp : " + currentHp);
+
     }
 
     private void Update()
     {
         if (slider?.value <= 0)
         {
-            Destroy(cameracollider.GetComponent<BoxCollider2D>());
-            Instantiate(Deadplayer, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
         }
     }
@@ -36,13 +29,13 @@ public class PlayerHP : MonoBehaviour
     //ColliderオブジェクトのIsTriggerにチェック入れること。
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (slider && !muteki)
+        if (slider)
         {
             //Enemyタグのオブジェクトに触れると発動
-            if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
+            if (collision.gameObject.tag == "Attackpoint")
             {
                 //ダメージは1～100の中でランダムに決める。
-                int damage = Random.Range(1, 30);
+                int damage = Random.Range(1, 40);
                 Debug.Log("damage : " + damage);
 
                 //現在のHPからダメージを引く
@@ -55,22 +48,6 @@ public class PlayerHP : MonoBehaviour
                 slider.value = (float)currentHp / (float)maxHp; ;
                 Debug.Log("slider.value : " + slider.value);
             }
-        }
-    }
-    public void HitPoisonLife(float life)
-    {
-        if (!muteki)
-        {
-            currentHp -= life * Time.deltaTime;
-            slider.value = (float)currentHp / (float)maxHp; ;
-        }
-    }
-    public void HitLife(float life)
-    {
-        if (!muteki)
-        {
-            currentHp -= life;
-            slider.value = (float)currentHp / (float)maxHp; ;
         }
     }
 }

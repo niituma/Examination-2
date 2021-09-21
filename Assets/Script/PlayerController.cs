@@ -75,12 +75,17 @@ public class PlayerController : MonoBehaviour
             isGround = true;
             jumpCount = 0;
         }
-        if (collision.tag == "EAttack" || collision.tag == "BAttack" && Guard == false)
+
+        if (collision.tag == "EAttack" && Guard == false || collision.tag == "BAttack")
         {
             m_anim.SetBool("Hit", true);
             Debug.Log("Hit!");
         }
-        
+        else if (collision.tag == "BAttack" && Guard == true)
+        {
+            m_anim.SetBool("Hit", true);
+        }
+
 
         if (collision.tag == "EAttack" && Guard)
         {
