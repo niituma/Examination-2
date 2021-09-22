@@ -17,7 +17,8 @@ public class PlayerSwhitcher : MonoBehaviour
         if (m_player)
         {
             m_player.SetActive(false);
-            m_HP.SetActive(false);
+            if (m_HP)
+                m_HP.SetActive(false);
         }
     }
     public void TurnOn()
@@ -25,7 +26,8 @@ public class PlayerSwhitcher : MonoBehaviour
         if (m_player)
         {
             m_player.SetActive(true);
-            m_HP.SetActive(true);
+            if (m_HP)
+                m_HP.SetActive(true);
         }
     }
 }

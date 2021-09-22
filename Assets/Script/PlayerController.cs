@@ -16,10 +16,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public bool Guard = false;
 
     [SerializeField] GameObject Effect = default;
+    [SerializeField] Transform JumpAura = default;
+    [SerializeField] GameObject JumpEffect = default;
     /// <summary>水平方向の入力値</summary>
     float m_h;
     private string grandTag = "Grand";
-    public bool isGround = false;
+    public bool isGround = true;
     private Vector2 movement;
     Animator m_anim = default;
     Rigidbody2D rb = default;
@@ -137,6 +139,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump"))
             {
+                Instantiate(JumpEffect, JumpAura.position, this.transform.rotation);
                 jumpCount++;
                 velocity.y = m_jumpPower;
                 Debug.Log("ジャンプ");

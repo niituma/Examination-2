@@ -9,6 +9,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] bool muteki = default;
     //最大HPと現在のHP。
     public float maxHp = 155;
+    [Range(0, 155)]
     static public float currentHp = 155;
     //Sliderを入れる
     Slider slider;

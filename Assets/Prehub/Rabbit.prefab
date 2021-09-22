@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71fb9a2e56a8f9945bcef00809762029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Effect: {fileID: 100002, guid: 98f977e4c19aa4c9a854ffbb6e3d9a4f, type: 3}
+  Effect: {fileID: 8173471137992953644, guid: 552f7b848c359904ea9630e86475d480, type: 3}
 --- !u!96 &801998808
 TrailRenderer:
   serializedVersion: 2
