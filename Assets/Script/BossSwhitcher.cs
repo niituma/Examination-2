@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossSwhitcher : MonoBehaviour
 {
-    GameObject m_boss;
+     [SerializeField] GameObject m_boss;
     // Start is called before the first frame update
     void Start()
     {

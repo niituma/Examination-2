@@ -6,6 +6,7 @@ public class BossHP : MonoBehaviour
     //最大HPと現在のHP。
     float maxHp = 2000;
     float currentHp;
+    [SerializeField] GameObject m_finishtimeline;
     //Sliderを入れる
     [SerializeField] Slider slider;
     private PlayerController Playercon;
@@ -22,6 +23,7 @@ public class BossHP : MonoBehaviour
     {
         if (slider?.value <= 0)
         {
+            m_finishtimeline.SetActive(true);
             Destroy(this.gameObject);
         }
     }

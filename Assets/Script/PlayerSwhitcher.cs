@@ -5,19 +5,27 @@ using UnityEngine;
 public class PlayerSwhitcher : MonoBehaviour
 {
     GameObject m_player;
+    GameObject m_HP;
     // Start is called before the first frame update
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
+        m_HP = GameObject.Find("SliderHP");
     }
     public void TurnOff()
     {
         if (m_player)
+        {
             m_player.SetActive(false);
+            m_HP.SetActive(false);
+        }
     }
     public void TurnOn()
     {
         if (m_player)
+        {
             m_player.SetActive(true);
+            m_HP.SetActive(true);
+        }
     }
 }
