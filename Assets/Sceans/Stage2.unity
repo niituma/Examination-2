@@ -38526,7 +38526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Panel: {fileID: 902473232}
-  Asioto: {fileID: 8300000, guid: 9dda66454d7ae41438d6c88c5193889d, type: 3}
+  Asioto: {fileID: 8300000, guid: ae72469bd1e87df45a41c43f7ccf7bc3, type: 3}
 --- !u!61 &529148642
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -56226,7 +56226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b35d4b45f6821540b65be1e0b5a87f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_count: 4
+  m_count: 3
 --- !u!4 &760350602
 Transform:
   m_ObjectHideFlags: 0
@@ -84921,7 +84921,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

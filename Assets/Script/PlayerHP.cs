@@ -42,6 +42,11 @@ public class PlayerHP : MonoBehaviour
             Instantiate(Deadplayer, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
         }
+        
+        if(currentHp >= maxHp)
+        {
+            currentHp = maxHp;
+        }
     }
 
     //ColliderオブジェクトのIsTriggerにチェック入れること。
@@ -53,7 +58,7 @@ public class PlayerHP : MonoBehaviour
             if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
             {
                 //ダメージは1～100の中でランダムに決める。
-                int damage = Random.Range(1, 30);
+                int damage = Random.Range(10, 20);
                 Debug.Log("damage : " + damage);
 
                 //現在のHPからダメージを引く

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         if (m_gameovercount > 3)
         {
             yield return new WaitForSeconds(0.3f);
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
         yield return new WaitForSeconds(0.3f);
         SceneManager.LoadScene(m_sceancount);
