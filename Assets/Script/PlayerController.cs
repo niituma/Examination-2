@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject Effect = default;
     [SerializeField] Transform JumpAura = default;
     [SerializeField] GameObject JumpEffect = default;
+    [SerializeField] AudioSource HitAudio;
     /// <summary>水平方向の入力値</summary>
     float m_h;
     private string grandTag = "Grand";
@@ -81,11 +82,13 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "EAttack" && Guard == false || collision.tag == "BAttack")
         {
             m_anim.SetBool("Hit", true);
+            HitAudio.PlayOneShot(HitAudio.clip);
             Debug.Log("Hit!");
         }
         else if (collision.tag == "BAttack" && Guard == true)
         {
             m_anim.SetBool("Hit", true);
+            HitAudio.PlayOneShot(HitAudio.clip);
         }
 
 

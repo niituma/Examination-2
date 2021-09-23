@@ -8,7 +8,7 @@ public class RandomDestroy : MonoBehaviour
     void Des()
     {
         _explodable = GetComponent<Explodable>();
-        int crash = Random.Range(1, 4);
+        int crash = 3;// Random.Range(1, 4);
         Debug.Log(crash);
 
         if (crash == 3)

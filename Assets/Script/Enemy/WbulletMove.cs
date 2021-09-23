@@ -7,6 +7,7 @@ public class WbulletMove : MonoBehaviour
     /// <summary>弾の生存期間（秒）</summary>
     [SerializeField] float m_lifeTime = 5f;
     [SerializeField] GameObject WBulletHitEff = default;
+    [SerializeField] AudioClip Hit;
     GameObject Player;
     public float Speed;
 
@@ -28,6 +29,7 @@ public class WbulletMove : MonoBehaviour
         if (collision.tag == "Player")
         {
             Instantiate(WBulletHitEff, this.transform.position, Quaternion.identity);
+            AudioSource.PlayClipAtPoint(Hit, transform.position);
             Destroy(this.gameObject);
         }
     }

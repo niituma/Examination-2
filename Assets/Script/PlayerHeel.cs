@@ -7,6 +7,7 @@ public class PlayerHeel : MonoBehaviour
     [SerializeField] float m_heelpoint = 10;
     [SerializeField] float m_SpeedY = 3f;
     [SerializeField] float m_amplitube = 1.5f;
+    [SerializeField] AudioClip HeelAudio;
     float m_timer;
     Rigidbody2D m_rb = default;
     private void Start()
@@ -23,6 +24,7 @@ public class PlayerHeel : MonoBehaviour
         if (collision.tag == "Player")
         {
             Debug.Log("Heel");
+            AudioSource.PlayClipAtPoint(HeelAudio, transform.position);
             FindObjectOfType<PlayerHP>().AddLife(m_heelpoint);
             Destroy(this.gameObject);
         }

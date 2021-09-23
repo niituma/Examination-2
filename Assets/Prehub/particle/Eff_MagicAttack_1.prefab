@@ -4762,6 +4762,7 @@ MonoBehaviour:
   m_lifeTime: 8
   WBulletHitEff: {fileID: 1668142254670812191, guid: 5d5ebc9db5ae04c48bb286a8d206288b,
     type: 3}
+  Hit: {fileID: 8300000, guid: 9e3875eeab658ca4f829bd28b16f12ac, type: 3}
   Speed: 2
 --- !u!58 &4072613941035600068
 CircleCollider2D:

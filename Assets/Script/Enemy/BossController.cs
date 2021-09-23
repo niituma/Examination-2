@@ -16,6 +16,7 @@ public class BossController : MonoBehaviour
     [SerializeField] float attack2movespeed = 5f;
     [SerializeField] float attack2removespeed = 7f;
     [SerializeField] GameObject m_laser = default;
+    [SerializeField] AudioClip Attack;
     GameObject Attack2pos = default;
     GameObject Attack2repos = default;
     GameObject Attack2repos2 = default;
@@ -82,6 +83,7 @@ public class BossController : MonoBehaviour
     {
         if (m_dis <= m_attackareadis && m_attack1cooltime >= m_attack1time)
         {
+            AudioSource.PlayClipAtPoint(Attack, new Vector3(transform.position.x, transform.position.y, 0));
             m_anim.SetBool("Attack1", true);
             m_attack1cooltime = 0f;
         }

@@ -86,6 +86,7 @@ MonoBehaviour:
   m_heelpoint: 30
   m_SpeedY: 3
   m_amplitube: 1.5
+  HeelAudio: {fileID: 8300000, guid: 785f30e97f6a3ef4095314e571ae2298, type: 3}
 --- !u!1 &1642412144955552982
 GameObject:
   m_ObjectHideFlags: 0
