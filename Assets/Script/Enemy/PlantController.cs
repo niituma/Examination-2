@@ -39,7 +39,7 @@ public class PlantController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Attackpoint")
+        if (collision.tag == "Attackpoint" || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
         {
             SHitpoint += 1;
             m_anim.SetBool("P Hit", true);

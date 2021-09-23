@@ -52,4 +52,9 @@ public class BossHP : MonoBehaviour
             }
         }
     }
+    public void HitLife(float life)
+    {
+            currentHp -= life;
+            slider.value = (float)currentHp / (float)maxHp; ;
+    }
 }
