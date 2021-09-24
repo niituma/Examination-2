@@ -14,6 +14,10 @@ public class PlayerController : MonoBehaviour
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
     [SerializeField] bool m_flipX = false;
     [SerializeField] public bool Guard = false;
+    /// <summary>壁を検出するための ray のベクトル</summary>
+    [SerializeField] Vector2 m_rayForWall = Vector2.zero;
+    /// <summary>壁のレイヤー（レイヤーはオブジェクトに設定されている）</summary>
+    [SerializeField] LayerMask m_wallLayer = 0;
 
     [SerializeField] GameObject Effect = default;
     [SerializeField] Transform JumpAura = default;
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
         m_h = Input.GetAxisRaw("Horizontal");
         // 各種入力を受け取る
         Panch();
+        Skill();
         Jump();
         JumpAttack();
         // 設定に応じて左右を反転させる
@@ -47,7 +52,21 @@ public class PlayerController : MonoBehaviour
         {
             FlipX(m_h);
         }
+
+        Vector2 origin = new Vector2(transform.position.x, transform.position.y + 1f);   // origin は「raycast の始点」である
+        Debug.DrawLine(origin, origin + m_rayForWall, Color.red);  // ray（光線）を Scene 上に描く
+        // Raycast して壁の検出を試みる
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, m_rayForWall, m_rayForWall.magnitude, m_wallLayer);   // hit には ray の衝突情報が入っている
+        if (hit.collider)  // hit.collider は「ray が衝突した collider」が入っている。ray が何にもぶつからなかったら null である。
+        {
+            isGround = true;
+        }
+        else
+        {
+            isGround = false;
+        }
     }
+    
     private void LateUpdate()
     {
         if (m_anim)
@@ -75,7 +94,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag == grandTag)
         {
-            isGround = true;
+            //isGround = true;
             jumpCount = 0;
         }
 
@@ -105,7 +124,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.tag == grandTag)
         {
-            isGround = false;
+            //isGround = false;
         }
 
         if (collision.tag == "EAttack" || collision.tag == "BAttack")
@@ -186,6 +205,17 @@ public class PlayerController : MonoBehaviour
             m_anim.SetBool("Gurad", false);
             Guard = false;
             Removed();
+        }
+    }
+    void Skill()
+    {
+        if (Input.GetButtonDown("Fire2") && isGround)
+        {
+            m_anim.SetBool("Skill", true);
+        }
+        else
+        {
+            m_anim.SetBool("Skill", false);
         }
     }
 

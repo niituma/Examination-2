@@ -67,7 +67,7 @@ public class WizardController : MonoBehaviour
         {
             this.transform.localScale = new Vector3(-1 * Mathf.Abs(this.transform.localScale.x), this.transform.localScale.y, this.transform.localScale.z);
         }
-        if (collision.tag == "Attackpoint")
+        if (collision.tag == "Attackpoint" || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
         {
             WHitpoint++;
             Debug.Log("W攻撃を受けた");
