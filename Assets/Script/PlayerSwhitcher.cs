@@ -10,7 +10,7 @@ public class PlayerSwhitcher : MonoBehaviour
     void Start()
     {
         m_player = GameObject.FindGameObjectWithTag("Player");
-        m_HP = GameObject.Find("SliderHP");
+        m_HP = GameObject.Find("DDOL");
     }
     public void TurnOff()
     {

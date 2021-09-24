@@ -10,7 +10,11 @@ public class ActiveHp : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
-        HP = GameObject.Find("SliderHP");
+    }
+    private void Update()
+    {
+        HP = GameObject.Find("DDOL");
+        if(HP)
         HP.SetActive(true);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -18,7 +22,6 @@ public class ActiveHp : MonoBehaviour
         if (collision.tag == "Player")
         {
             FindObjectOfType<PlayerHP>().AddLife(m_heel);
-            Destroy(this.gameObject);
         }
     }
 }
