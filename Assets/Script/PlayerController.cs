@@ -209,8 +209,9 @@ public class PlayerController : MonoBehaviour
     }
     void Skill()
     {
-        if (Input.GetButtonDown("Fire2") && isGround)
+        if (Input.GetButtonDown("Fire2"))
         {
+            //SkillMP();
             m_anim.SetBool("Skill", true);
         }
         else
@@ -218,7 +219,11 @@ public class PlayerController : MonoBehaviour
             m_anim.SetBool("Skill", false);
         }
     }
-
+    void SkillMP()
+    {
+        float m_skillusemp = 10f;
+        FindObjectOfType<PlayerMP>().UseMP(m_skillusemp);
+    }
     void Stopmove()
     {
         m_movePower = 0f;
