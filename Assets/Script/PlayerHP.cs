@@ -11,13 +11,13 @@ public class PlayerHP : MonoBehaviour
     public float maxHp = 155;
     [Range(0, 155)]
     static public float currentHp = 155;
+    public float Hp = 155;
     //Sliderを入れる
     Slider slider;
     private PlayerController Playercon;
 
     void Start()
     {
-
         if (HPOnOff)
             slider = GameObject.Find("Slider").GetComponent<Slider>();
 
@@ -36,6 +36,8 @@ public class PlayerHP : MonoBehaviour
 
     private void Update()
     {
+        Hp = currentHp;
+
         if (slider?.value <= 0)
         {
             Destroy(cameracollider.GetComponent<BoxCollider2D>());
