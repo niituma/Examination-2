@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
             isGround = false;
         }
     }
-    
+
     private void LateUpdate()
     {
         if (m_anim)
@@ -209,9 +209,8 @@ public class PlayerController : MonoBehaviour
     }
     void Skill()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && PlayerMP.currentMp > 0)
         {
-            //SkillMP();
             m_anim.SetBool("Skill", true);
         }
         else

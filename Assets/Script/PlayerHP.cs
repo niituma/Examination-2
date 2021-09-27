@@ -36,7 +36,6 @@ public class PlayerHP : MonoBehaviour
 
     private void Update()
     {
-        Hp = currentHp;
 
         if (slider?.value <= 0)
         {

@@ -10,6 +10,7 @@ public class ActiveHp : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        FindObjectOfType<PlayerMP>().FirstMP(m_heel);
     }
     private void Update()
     {
