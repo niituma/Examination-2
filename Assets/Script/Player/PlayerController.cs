@@ -25,14 +25,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] AudioSource HitAudio;
     /// <summary>水平方向の入力値</summary>
     float m_h;
+    bool breakGuard = default;
     private string grandTag = "Grand";
     public bool isGround = true;
     private Vector2 movement;
+    PlayerSP SP;
     Animator m_anim = default;
     Rigidbody2D rb = default;
 
     void Start()
     {
+        SP = GetComponent<PlayerSP>();
         m_anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         m_removePower = m_movePower;
@@ -47,6 +50,12 @@ public class PlayerController : MonoBehaviour
         Skill();
         Jump();
         JumpAttack();
+
+        if (PlayerSP.currentSp < 0)
+            breakGuard = true;
+        else if(PlayerSP.currentSp >= SP.maxSp)
+            breakGuard = false;
+
         // 設定に応じて左右を反転させる
         if (m_flipX)
         {
@@ -159,7 +168,7 @@ public class PlayerController : MonoBehaviour
         Vector2 velocity = rb.velocity;
         if (jumpCount < 2)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && !Guard)
             {
                 Instantiate(JumpEffect, JumpAura.position, this.transform.rotation);
                 jumpCount++;
@@ -194,13 +203,13 @@ public class PlayerController : MonoBehaviour
             m_anim.SetBool("Punch", false);
         }
 
-        if (Input.GetKey(KeyCode.S) && isGround)
+        if (Input.GetKey(KeyCode.S) && isGround && PlayerSP.currentSp > 0 && !breakGuard)
         {
             m_anim.SetBool("Gurad", true);
             Guard = true;
             Stopmove();
         }
-        else if (Input.GetKeyUp(KeyCode.S))
+        else if (Input.GetKeyUp(KeyCode.S) || PlayerSP.currentSp < 0)
         {
             m_anim.SetBool("Gurad", false);
             Guard = false;

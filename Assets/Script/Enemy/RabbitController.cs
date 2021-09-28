@@ -44,7 +44,7 @@ public class RabbitController : Enemybasemove
             m_anim.SetBool("Walk", true);
         }
 
-        if (collision.tag == "Attackpoint")
+        if (collision.tag == "Attackpoint" || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
         {
             if (this.transform.localScale.x > 0)
             {

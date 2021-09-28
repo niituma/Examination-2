@@ -19,7 +19,7 @@ public class PlayerHP : MonoBehaviour
     void Start()
     {
         if (HPOnOff)
-            slider = GameObject.Find("Slider").GetComponent<Slider>();
+            slider = GameObject.Find("SliderHP").GetComponent<Slider>();
 
         if (currentHp < 0)
         {
