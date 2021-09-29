@@ -43,6 +43,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Q))
+        {
+            Pauser.Pause();
+        }
         // 入力を受け取る
         m_h = Input.GetAxisRaw("Horizontal");
         // 各種入力を受け取る
