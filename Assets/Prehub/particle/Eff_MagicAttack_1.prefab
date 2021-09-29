@@ -4725,6 +4725,8 @@ GameObject:
   - component: {fileID: 4361130892310416667}
   - component: {fileID: 4361130892987023645}
   - component: {fileID: 4072613941035600068}
+  - component: {fileID: 4500642398545081676}
+  - component: {fileID: -7425678525441390405}
   m_Layer: 8
   m_Name: Eff_MagicAttack_1
   m_TagString: EAttack
@@ -4780,6 +4782,39 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &4500642398545081676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361130892310253883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe7973a370a044882ec8fe9a13b0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &-7425678525441390405
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4361130892310253883}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4361130892310253885
 GameObject:
   m_ObjectHideFlags: 0

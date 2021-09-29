@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 5657174269174831578}
   - component: {fileID: 4836999015216152231}
   - component: {fileID: 5481176346493908745}
+  - component: {fileID: 1016406674033288221}
   m_Layer: 16
   m_Name: Skeleton
   m_TagString: Enemy
@@ -494,5 +495,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1700dbda57a60b24eba2e8ee4f248056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1016406674033288221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4827842755449035888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe7973a370a044882ec8fe9a13b0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

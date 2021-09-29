@@ -46,7 +46,7 @@ public class SkeletonController : Enemybasemove
             m_anim.SetBool("S Walk", true);
         }
 
-        if (collision.tag == "Attackpoint")
+        if (collision.tag == "Attackpoint2" || collision.tag == "Skilpoint1")
         {
             if (this.transform.localScale.x > 0)
             {

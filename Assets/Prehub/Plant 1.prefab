@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5168690157099431824}
   - component: {fileID: 398025207330848854}
   - component: {fileID: 153244521}
+  - component: {fileID: 1570956011375044330}
   m_Layer: 15
   m_Name: Plant 1
   m_TagString: Enemy
@@ -223,6 +224,18 @@ MonoBehaviour:
   orderInLayer: 0
   shatterType: 1
   fragments: []
+--- !u!114 &1570956011375044330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5168690157099431836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe7973a370a044882ec8fe9a13b0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5168690158652777193
 GameObject:
   m_ObjectHideFlags: 0

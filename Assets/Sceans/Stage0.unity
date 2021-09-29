@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2875,6 +2875,49 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 616871479}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &650083463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 650083465}
+  - component: {fileID: 650083464}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &650083464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650083463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ac5fb53fdb51e4fa23ac7c8ef488cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &650083465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650083463}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.15, y: 1.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &701406939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3896,6 +3939,7 @@ GameObject:
   - component: {fileID: 971528831}
   - component: {fileID: 971528830}
   - component: {fileID: 971528829}
+  - component: {fileID: 971528835}
   m_Layer: 9
   m_Name: Soldier (2)
   m_TagString: Enemy
@@ -4042,6 +4086,18 @@ Transform:
   m_Father: {fileID: 75158805}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971528835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971528828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98570fa15efaea4e8854985e84743f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &979548228
 GameObject:
   m_ObjectHideFlags: 0
@@ -7754,6 +7810,7 @@ GameObject:
   - component: {fileID: 1714791411}
   - component: {fileID: 1714791414}
   - component: {fileID: 1714791415}
+  - component: {fileID: 1714791416}
   m_Layer: 9
   m_Name: Soldier
   m_TagString: Enemy
@@ -7886,6 +7943,18 @@ MonoBehaviour:
   AttackHit: {fileID: 8300000, guid: fa1a7f49c1eafea4ba6d438c196963ff, type: 3}
   AttackHit2: {fileID: 8300000, guid: da5c94f6e42dded4cb5da9e428008926, type: 3}
   AttackHit3: {fileID: 8300000, guid: f2cd3be18a43d0142b92604a8e160934, type: 3}
+--- !u!114 &1714791416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1714791410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98570fa15efaea4e8854985e84743f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1715786565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10020,6 +10089,7 @@ GameObject:
   - component: {fileID: 2100433683}
   - component: {fileID: 2100433682}
   - component: {fileID: 2100433681}
+  - component: {fileID: 2100433686}
   m_Layer: 9
   m_Name: Soldier (1)
   m_TagString: Enemy
@@ -10152,6 +10222,18 @@ Transform:
   m_Father: {fileID: 75158805}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2100433686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2100433680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a98570fa15efaea4e8854985e84743f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2109458339
 GameObject:
   m_ObjectHideFlags: 0

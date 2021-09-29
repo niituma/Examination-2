@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 6336462249597897818}
   - component: {fileID: 7956311128596967190}
   - component: {fileID: 311295367086619632}
+  - component: {fileID: 2440828134242362412}
   m_Layer: 9
   m_Name: Rabbit
   m_TagString: Enemy
@@ -465,5 +466,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1700dbda57a60b24eba2e8ee4f248056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2440828134242362412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8729824628894950462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eebe7973a370a044882ec8fe9a13b0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

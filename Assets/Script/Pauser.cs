@@ -7,6 +7,8 @@ public class Pauser : MonoBehaviour
 {
 	static List<Pauser> targets = new List<Pauser>();   // ポーズ対象のスクリプト
 
+	GameObject pbullet;
+
 	// ポーズ対象のコンポーネント
 	Behaviour[] pauseBehavs = null;
 
@@ -39,7 +41,6 @@ public class Pauser : MonoBehaviour
 		{
 			return;
 		}
-
 		// 有効なコンポーネントを取得
 		pauseBehavs = Array.FindAll(GetComponentsInChildren<Behaviour>(), (obj) => { return obj.enabled; });
 		foreach (var com in pauseBehavs)
@@ -66,6 +67,7 @@ public class Pauser : MonoBehaviour
 			rg2dBodyAVels[i] = rg2dBodies[i].angularVelocity;
 			rg2dBodies[i].Sleep();
 		}
+
 	}
 
 	// ポーズ解除されたとき
@@ -108,7 +110,7 @@ public class Pauser : MonoBehaviour
 	}
 
 	// ポーズ
-	public static void Pause()
+	public void Pause()
 	{
 		foreach (var obj in targets)
 		{
@@ -117,7 +119,7 @@ public class Pauser : MonoBehaviour
 	}
 
 	// ポーズ解除
-	public static void Resume()
+	public void Resume()
 	{
 		foreach (var obj in targets)
 		{
