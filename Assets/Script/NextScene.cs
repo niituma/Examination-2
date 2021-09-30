@@ -3,6 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class NextScene : MonoBehaviour
 {
+    [SerializeField] GameObject Pausepanel = default;
+    public void FadeoutTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
     void Fadeout1()
     {
         SceneManager.LoadScene("Stage1");
@@ -14,5 +19,13 @@ public class NextScene : MonoBehaviour
     void Fadeout3()
     {
         SceneManager.LoadScene("Boss");
+    }
+    void PausePanelOn()
+    {
+        Pausepanel.SetActive(true);
+    }
+    void PausePanelOff()
+    {
+        Pausepanel.SetActive(false);
     }
 }

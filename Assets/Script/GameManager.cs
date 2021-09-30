@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static public int m_gameovercount = 0;
-    static public int m_sceancount = 3;
+    [SerializeField] GameObject PausePanel = default;
     bool ispause = default;
-    GameObject Player;
-    private void Start()
-    {
-        Player = GameObject.Find("Player");
-    }
     private void Update()
     {
         if (Input.GetButtonDown("Cancel"))
@@ -19,16 +13,7 @@ public class GameManager : MonoBehaviour
             PauseResume();
         }
     }
-    public void SceanCount(int count)
-    {
-        m_sceancount = count;
-    }
-    void PlayerDead()
-    {
-        m_gameovercount++;
-        StartCoroutine(ReStart());
-    }
-    void PauseResume()
+    public void PauseResume()
     {
         ispause = !ispause;
 
@@ -42,30 +27,13 @@ public class GameManager : MonoBehaviour
             if (ispause)
             {
                 i?.Pause();     // ここで「多態性」が使われている
+                PausePanel.SetActive(true);
             }
             else
             {
                 i?.Resume();    // ここで「多態性」が使われている
+                PausePanel.SetActive(false);
             }
         }
-        if (ispause)
-        {
-            FindObjectOfType<Pauser>().Pause();
-        }
-        else
-        {
-            FindObjectOfType<Pauser>().Resume();
-        }
-    }
-
-    IEnumerator ReStart()
-    {
-        if (m_gameovercount > 3)
-        {
-            yield return new WaitForSeconds(0.3f);
-            SceneManager.LoadScene(0);
-        }
-        yield return new WaitForSeconds(0.3f);
-        SceneManager.LoadScene(m_sceancount);
     }
 }
