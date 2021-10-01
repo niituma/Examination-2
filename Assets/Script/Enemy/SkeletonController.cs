@@ -9,6 +9,7 @@ public class SkeletonController : Enemybasemove
     [SerializeField] float Attackcooltime = 0f;
     [SerializeField] GameObject Item = default;
     [SerializeField] float knockbackForce = 0.5f;
+    GameObject aftereff = default;
     private string AttackTag = "Attackpoint";
     private Vector2 knockbackVelocity = Vector2.zero;
     Animator m_anim = default;
@@ -27,6 +28,10 @@ public class SkeletonController : Enemybasemove
 
         if (SHitpoint >= deadpoint)
         {
+            aftereff = GameObject.Find(this.gameObject.name + "AfterImageEffect");
+            if(aftereff != null)
+            Destroy(aftereff.gameObject);
+
             m_anim.SetBool("S Dead", true);
         }
 
@@ -34,7 +39,7 @@ public class SkeletonController : Enemybasemove
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == AttackTag || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
+        if (collision.tag == "Attackpoint" || collision.tag == "Attackpoint2" || collision.tag == "Attackpoint3" || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
         {
             SHitpoint++;
             Debug.Log("攻撃を受けた");
@@ -77,13 +82,8 @@ public class SkeletonController : Enemybasemove
         {
             Attackcooltime += Time.deltaTime;
         }
-        
-    }
-    void Destroy()
-    {
-        Destroy(this.gameObject);
-    }
 
+    }
     public override void Activate()
     {
         Instantiate(Item, this.transform.position, Quaternion.identity);

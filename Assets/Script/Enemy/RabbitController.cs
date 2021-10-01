@@ -32,7 +32,7 @@ public class RabbitController : Enemybasemove
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == AttackTag || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
+        if (collision.tag == "Attackpoint" || collision.tag == "Attackpoint2" || collision.tag == "Attackpoint3" || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
         {
             RHitpoint++;
             Debug.Log("攻撃を受けた");

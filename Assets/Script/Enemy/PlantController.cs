@@ -31,7 +31,7 @@ public class PlantController : MonoBehaviour
         {
             m_anim.SetBool("PAttack", false);
         }
-        if(SHitpoint == deadpoint)
+        if(SHitpoint >= deadpoint)
         {
             m_anim.SetBool("Dead", true);
         }
@@ -39,7 +39,7 @@ public class PlantController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Attackpoint" || collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
+        if (collision.tag == "Attackpoint"|| collision.tag == "Attackpoint2" || collision.tag == "Attackpoint3"|| collision.tag == "Skilpoint1" || collision.tag == "Skilpoint2")
         {
             SHitpoint += 1;
             m_anim.SetBool("P Hit", true);
