@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float m_movePower = 5f;
     /// <summary>再度移動する力/// </summary>
     float m_removePower = 0;
+    /// <summary>バックステップする力/// </summary>
+    [SerializeField] float m_backForce = 50f;
     /// <summary>ジャンプする力</summary>
     [SerializeField] float m_jumpPower = 15f;
     /// <summary>入力に応じて左右を反転させるかどうかのフラグ</summary>
@@ -26,6 +28,7 @@ public class PlayerController : MonoBehaviour
     /// <summary>水平方向の入力値</summary>
     float m_h;
     bool breakGuard = default;
+    bool isback = default;
     private string grandTag = "Grand";
     public bool isGround = true;
     private Vector2 movement;
@@ -50,16 +53,25 @@ public class PlayerController : MonoBehaviour
         Skill();
         Jump();
         JumpAttack();
+        BackStep();
 
         if (PlayerSP.currentSp < 0)
             breakGuard = true;
-        else if(PlayerSP.currentSp >= SP.maxSp)
+        else if (PlayerSP.currentSp >= SP.maxSp)
             breakGuard = false;
 
         // 設定に応じて左右を反転させる
         if (m_flipX)
         {
             FlipX(m_h);
+        }
+
+        if (isback)
+        {
+            if (this.transform.localScale.x > 0)
+                rb.AddForce(transform.right * -1 * m_backForce, ForceMode2D.Force);
+            if (this.transform.localScale.x < 0)
+                rb.AddForce(transform.right * m_backForce, ForceMode2D.Force);
         }
 
         Vector2 origin = new Vector2(transform.position.x, transform.position.y + 1f);   // origin は「raycast の始点」である
@@ -69,6 +81,7 @@ public class PlayerController : MonoBehaviour
         if (hit.collider)  // hit.collider は「ray が衝突した collider」が入っている。ray が何にもぶつからなかったら null である。
         {
             isGround = true;
+            jumpCount = 0;
         }
         else
         {
@@ -101,12 +114,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == grandTag)
-        {
-            //isGround = true;
-            jumpCount = 0;
-        }
-
         if (collision.tag == "EAttack" && Guard == false || collision.tag == "BAttack")
         {
             m_anim.SetBool("Hit", true);
@@ -130,12 +137,6 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-
-        if (collision.tag == grandTag)
-        {
-            //isGround = false;
-        }
-
         if (collision.tag == "EAttack" || collision.tag == "BAttack")
         {
             m_anim.SetBool("Hit", false);
@@ -166,7 +167,7 @@ public class PlayerController : MonoBehaviour
     void Jump()
     {
         Vector2 velocity = rb.velocity;
-        if (jumpCount < 2)
+        if (jumpCount < 1)
         {
             if (Input.GetButtonDown("Jump") && !Guard)
             {
@@ -177,6 +178,24 @@ public class PlayerController : MonoBehaviour
             }
         }
         rb.velocity = velocity;
+    }
+    void BackStep()
+    {
+        if (Input.GetButtonDown("Debug Multiplier"))
+        {
+            m_anim.SetBool("BackStep", true);
+        }
+        else
+        {
+            m_anim.SetBool("BackStep", false);
+        }
+    }
+    void GoBack()
+    {
+        if (!isback)
+            isback = true;
+        else
+            isback = false;
     }
 
     void JumpAttack()
