@@ -6,12 +6,13 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] GameObject Deadplayer = default;
     [SerializeField] GameObject cameracollider = default;
     [SerializeField] bool HPOnOff = true;
-    [SerializeField] bool muteki = default;
+    [SerializeField] bool mutekimode = default;
     //最大HPと現在のHP。
     public float maxHp = 155;
     [Range(0, 155)]
     static public float currentHp = 155;
     public float Hp = 155;
+    public bool playmuteki = default;
     //Sliderを入れる
     Slider slider;
     private PlayerController Playercon;
@@ -53,7 +54,7 @@ public class PlayerHP : MonoBehaviour
     //ColliderオブジェクトのIsTriggerにチェック入れること。
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (slider && !muteki)
+        if (slider && !mutekimode && !playmuteki)
         {
             //Enemyタグのオブジェクトに触れると発動
             if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
@@ -76,7 +77,7 @@ public class PlayerHP : MonoBehaviour
     }
     public void HitPoisonLife(float life)
     {
-        if (!muteki)
+        if (!mutekimode || !playmuteki)
         {
             currentHp -= life * Time.deltaTime;
             slider.value = (float)currentHp / (float)maxHp; ;
@@ -84,7 +85,7 @@ public class PlayerHP : MonoBehaviour
     }
     public void HitLife(float life)
     {
-        if (!muteki)
+        if (!mutekimode|| !playmuteki)
         {
             currentHp -= life;
             slider.value = (float)currentHp / (float)maxHp; ;

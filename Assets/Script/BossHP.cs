@@ -34,7 +34,7 @@ public class BossHP : MonoBehaviour
         if (slider)
         {
             //Enemyタグのオブジェクトに触れると発動
-            if (collision.gameObject.tag == "Attackpoint")
+            if (collision.tag == "Attackpoint" || collision.tag == "Attackpoint2" || collision.tag == "Attackpoint3" || collision.tag == "Skilpoint1")
             {
                 //ダメージは1～100の中でランダムに決める。
                 int damage = Random.Range(1, 40);

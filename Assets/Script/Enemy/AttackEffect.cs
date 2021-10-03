@@ -12,7 +12,7 @@ public class AttackEffect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Attackpoint" || other.tag == "Attackpoint2" || other.tag == "Attackpoint3" || other.tag == "Skilpoint1" || other.tag == "Skilpoint2")
+        if (other.tag == "Attackpoint" || other.tag == "Attackpoint2" || other.tag == "Attackpoint3" || other.tag == "Skilpoint1" || other.tag == "Skilpoint2" || other.tag == "Skilpoint3")
         {
             Vector3 hitPos = other.bounds.ClosestPoint(this.transform.position);
             Instantiate(Effect, hitPos, Quaternion.identity);

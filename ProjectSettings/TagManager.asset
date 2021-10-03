@@ -19,6 +19,7 @@ TagManager:
   - Attackpoint3
   - Skilpoint1
   - Skilpoint2
+  - Skilpoint3
   layers:
   - Default
   - TransparentFX

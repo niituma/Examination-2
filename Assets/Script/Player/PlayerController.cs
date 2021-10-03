@@ -32,12 +32,14 @@ public class PlayerController : MonoBehaviour
     private string grandTag = "Grand";
     public bool isGround = true;
     private Vector2 movement;
+    PlayerHP HP;
     PlayerSP SP;
     Animator m_anim = default;
     Rigidbody2D rb = default;
 
     void Start()
     {
+        HP = GetComponent<PlayerHP>();
         SP = GetComponent<PlayerSP>();
         m_anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -114,7 +116,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "EAttack" && Guard == false || collision.tag == "BAttack")
+        if (collision.tag == "EAttack" && Guard == false && !HP.playmuteki|| collision.tag == "BAttack" && !HP.playmuteki)
         {
             m_anim.SetBool("Hit", true);
             HitAudio.PlayOneShot(HitAudio.clip);
@@ -193,9 +195,15 @@ public class PlayerController : MonoBehaviour
     void GoBack()
     {
         if (!isback)
+        {
             isback = true;
+            HP.playmuteki = true;
+        }
         else
+        {
             isback = false;
+            HP.playmuteki = false;
+        }
     }
 
     void JumpAttack()
