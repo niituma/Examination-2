@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9819,6 +9819,11 @@ PrefabInstance:
       propertyPath: fragments.Array.data[20]
       value: 
       objectReference: {fileID: 17581892}
+    - target: {fileID: 5168690157099431824, guid: b976ea583523a5e499ee3d40ea2a2663,
+        type: 3}
+      propertyPath: deadpoint
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5168690157099431826, guid: b976ea583523a5e499ee3d40ea2a2663,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11379,6 +11384,11 @@ PrefabInstance:
       propertyPath: fragments.Array.data[20]
       value: 
       objectReference: {fileID: 580716393}
+    - target: {fileID: 5168690157099431824, guid: b976ea583523a5e499ee3d40ea2a2663,
+        type: 3}
+      propertyPath: deadpoint
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5168690157099431826, guid: b976ea583523a5e499ee3d40ea2a2663,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -13323,6 +13333,11 @@ PrefabInstance:
       propertyPath: fragments.Array.data[20]
       value: 
       objectReference: {fileID: 2008715941}
+    - target: {fileID: 5168690157099431824, guid: b976ea583523a5e499ee3d40ea2a2663,
+        type: 3}
+      propertyPath: deadpoint
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5168690157099431826, guid: b976ea583523a5e499ee3d40ea2a2663,
         type: 3}
       propertyPath: m_Color.a
@@ -18646,6 +18661,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 909228136}
+    - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: deadpoint
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: Attacktime
@@ -50671,6 +50691,11 @@ PrefabInstance:
       propertyPath: fragments.Array.data[20]
       value: 
       objectReference: {fileID: 938582858}
+    - target: {fileID: 5168690157099431824, guid: b976ea583523a5e499ee3d40ea2a2663,
+        type: 3}
+      propertyPath: deadpoint
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5168690157099431826, guid: b976ea583523a5e499ee3d40ea2a2663,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -54552,6 +54577,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 909228136}
+    - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: deadpoint
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: Attacktime
@@ -71653,6 +71683,11 @@ PrefabInstance:
       propertyPath: fragments.Array.data[20]
       value: 
       objectReference: {fileID: 615492741}
+    - target: {fileID: 5168690157099431824, guid: b976ea583523a5e499ee3d40ea2a2663,
+        type: 3}
+      propertyPath: deadpoint
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5168690157099431826, guid: b976ea583523a5e499ee3d40ea2a2663,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -105955,6 +105990,11 @@ PrefabInstance:
       propertyPath: fragments.Array.data[20]
       value: 
       objectReference: {fileID: 1893668800}
+    - target: {fileID: 5168690157099431824, guid: b976ea583523a5e499ee3d40ea2a2663,
+        type: 3}
+      propertyPath: deadpoint
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5168690157099431826, guid: b976ea583523a5e499ee3d40ea2a2663,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -125427,6 +125467,11 @@ PrefabInstance:
       objectReference: {fileID: 909228136}
     - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
+      propertyPath: deadpoint
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
       propertyPath: Attacktime
       value: 4
       objectReference: {fileID: 0}
@@ -127188,6 +127233,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 909228136}
+    - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: deadpoint
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}
       propertyPath: Attacktime
@@ -143503,6 +143553,11 @@ PrefabInstance:
       propertyPath: fragments.Array.data[20]
       value: 
       objectReference: {fileID: 1622760995}
+    - target: {fileID: 5168690157099431824, guid: b976ea583523a5e499ee3d40ea2a2663,
+        type: 3}
+      propertyPath: deadpoint
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5168690157099431826, guid: b976ea583523a5e499ee3d40ea2a2663,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -163036,6 +163091,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RSpeed
       value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
+        type: 3}
+      propertyPath: deadpoint
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8729824628894950449, guid: e844e927a54f89d4e9607370ffbdbd19,
         type: 3}

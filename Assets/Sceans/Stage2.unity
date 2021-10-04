@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8822,6 +8822,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076558770}
     m_Modifications:
+    - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
+        type: 3}
+      propertyPath: deadpoint
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
         type: 3}
       propertyPath: WizardFile
@@ -20808,6 +20813,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 80860365, guid: 7dfb7210286492d47b8cb99ffcf9d3c9, type: 3}
+      propertyPath: m_heelmp
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 909228143, guid: 7dfb7210286492d47b8cb99ffcf9d3c9, type: 3}
       propertyPath: HPOnOff
       value: 1
@@ -57146,6 +57155,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
         type: 3}
+      propertyPath: deadpoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
+        type: 3}
       propertyPath: WizardFile
       value: 
       objectReference: {fileID: 727012948}
@@ -89001,6 +89015,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
         type: 3}
+      propertyPath: deadpoint
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -93863,6 +93882,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Stopdis
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
+        type: 3}
+      propertyPath: deadpoint
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
         type: 3}
@@ -133729,6 +133753,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
         type: 3}
+      propertyPath: deadpoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
+        type: 3}
       propertyPath: WizardFile
       value: 
       objectReference: {fileID: 1510519384}
@@ -138243,6 +138272,11 @@ PrefabInstance:
         type: 3}
       propertyPath: Stopdis
       value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
+        type: 3}
+      propertyPath: deadpoint
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
         type: 3}
@@ -146389,6 +146423,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
         type: 3}
+      propertyPath: deadpoint
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
+        type: 3}
       propertyPath: WizardFile
       value: 
       objectReference: {fileID: 2034584702}
@@ -153912,6 +153951,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
         type: 3}
+      propertyPath: deadpoint
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827842755449035897, guid: 2e0f95fdd664da74a921645c1cc78b87,
+        type: 3}
       propertyPath: Attacktime
       value: 4
       objectReference: {fileID: 0}
@@ -158775,6 +158819,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076558770}
     m_Modifications:
+    - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
+        type: 3}
+      propertyPath: deadpoint
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6963550257910221618, guid: 325b37e81d85fa3488d5e08382c838ce,
         type: 3}
       propertyPath: WizardFile

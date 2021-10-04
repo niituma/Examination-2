@@ -60,7 +60,7 @@ public class PlayerHP : MonoBehaviour
             if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
             {
                 //ダメージは1～100の中でランダムに決める。
-                int damage = Random.Range(10, 20);
+                int damage = Random.Range(15, 21);
                 Debug.Log("damage : " + damage);
 
                 //現在のHPからダメージを引く

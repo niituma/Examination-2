@@ -6,7 +6,7 @@ public class PlayerSP : MonoBehaviour
 {
     [SerializeField] bool HPOnOff = true;
     [SerializeField] bool muteki = default;
-    [SerializeField] float m_heelsp = 0.1f;
+    [SerializeField] float m_heelsp = 0.8f;
     bool isheelsp = default;
     //最大SPと現在のSP。
     public float maxSp = 50;
@@ -59,7 +59,7 @@ public class PlayerSP : MonoBehaviour
             if (collision.gameObject.tag == "EAttack" && Playercon.Guard)
             {
                 //ダメージは1～100の中でランダムに決める。
-                int damage = Random.Range(5, 10);
+                int damage = Random.Range(10, 15);
                 Debug.Log("damage : " + damage);
 
                 //現在のHPからダメージを引く

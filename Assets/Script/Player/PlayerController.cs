@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject Effect = default;
     [SerializeField] Transform JumpAura = default;
     [SerializeField] GameObject JumpEffect = default;
+    [SerializeField] Transform skill2mazulle = default;
+    [SerializeField] GameObject skill2Effect = default;
+    [SerializeField] Transform skill3mazulle = default;
+    [SerializeField] GameObject skill3Effect = default;
     [SerializeField] AudioSource HitAudio;
     /// <summary>水平方向の入力値</summary>
     float m_h;
@@ -253,6 +257,14 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetBool("Skill", false);
         }
+    }
+    void Skill2Ability()
+    {
+        Instantiate(skill2Effect, skill2mazulle.position, skill2mazulle.transform.rotation);
+    }
+    void Skill3Ability()
+    {
+        Instantiate(skill3Effect, skill3mazulle.position, this.transform.rotation);
     }
     void SkillMP()
     {
