@@ -5696,7 +5696,7 @@ GameObject:
   - component: {fileID: 1117009364}
   - component: {fileID: 1117009363}
   m_Layer: 0
-  m_Name: "\u4E0D\u601D\u8B70\u306A\u68EE"
+  m_Name: BGM0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
