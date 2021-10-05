@@ -18908,7 +18908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14d320937b4ec14580a27f9a4bc705e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_heelpoint: 25
+  m_heelpoint: 20
   m_SpeedY: 3
   m_amplitube: 1.5
   HeelAudio: {fileID: 8300000, guid: 785f30e97f6a3ef4095314e571ae2298, type: 3}

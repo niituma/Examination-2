@@ -28,11 +28,13 @@ public class GameManager : MonoBehaviour
             {
                 i?.Pause();     // ここで「多態性」が使われている
                 PausePanel.SetActive(true);
+                Cursor.visible = true;
             }
             else
             {
                 i?.Resume();    // ここで「多態性」が使われている
                 PausePanel.SetActive(false);
+                Cursor.visible = false;
             }
         }
     }

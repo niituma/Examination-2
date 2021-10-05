@@ -21,7 +21,7 @@ public class PlayerSP : MonoBehaviour
         if (HPOnOff)
             slider = GameObject.Find("SliderSP").GetComponent<Slider>();
 
-        if (PlayerHP.currentHp < 0)
+        if (PlayerHP.currentHp <= 0)
         {
             currentSp += maxSp;
             slider.value = 1;
