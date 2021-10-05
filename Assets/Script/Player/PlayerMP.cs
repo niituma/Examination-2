@@ -24,6 +24,7 @@ public class PlayerMP : MonoBehaviour
             slider.fillAmount = 1f;
         }
 
+
         if (slider)
         {
             Debug.Log("Start currentMp : " + currentMp);

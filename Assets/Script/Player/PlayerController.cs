@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform skill3mazulle = default;
     [SerializeField] GameObject skill3Effect = default;
     [SerializeField] AudioSource HitAudio;
+    [SerializeField] AudioSource BackAudio;
     /// <summary>水平方向の入力値</summary>
     float m_h;
     bool breakGuard = default;
@@ -120,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "EAttack" && Guard == false && !HP.playmuteki|| collision.tag == "BAttack" && !HP.playmuteki)
+        if (collision.tag == "EAttack" && Guard == false && !HP.playmuteki || collision.tag == "BAttack" && !HP.playmuteki)
         {
             m_anim.SetBool("Hit", true);
             HitAudio.PlayOneShot(HitAudio.clip);
@@ -187,7 +188,7 @@ public class PlayerController : MonoBehaviour
     }
     void BackStep()
     {
-        if (Input.GetButtonDown("Debug Multiplier"))
+        if (Input.GetButtonDown("Debug Multiplier") && !Guard)
         {
             m_anim.SetBool("BackStep", true);
         }
@@ -195,6 +196,10 @@ public class PlayerController : MonoBehaviour
         {
             m_anim.SetBool("BackStep", false);
         }
+    }
+    void BackStepAudio()
+    {
+        HitAudio.PlayOneShot(BackAudio.clip);
     }
     void GoBack()
     {
