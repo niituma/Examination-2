@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class BossHP : MonoBehaviour
 {
     //最大HPと現在のHP。
-    float maxHp = 2000;
+    float maxHp = 1000;
     float currentHp;
     [SerializeField] GameObject m_finishtimeline;
     //Sliderを入れる
