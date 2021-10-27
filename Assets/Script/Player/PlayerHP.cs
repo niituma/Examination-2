@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerHP : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class PlayerHP : MonoBehaviour
     [SerializeField] GameObject cameracollider = default;
     [SerializeField] bool HPOnOff = true;
     [SerializeField] bool mutekimode = default;
+    [SerializeField] float _changeValueInterval = 0.5f;
     //最大HPと現在のHP。
     public float maxHp = 155;
     [Range(0, 155)]
@@ -59,7 +61,7 @@ public class PlayerHP : MonoBehaviour
             //Enemyタグのオブジェクトに触れると発動
             if (collision.gameObject.tag == "EAttack" && !Playercon.Guard)
             {
-                //ダメージは1～100の中でランダムに決める。
+                ////ダメージは1～100の中でランダムに決める。
                 int damage = Random.Range(15, 21);
                 Debug.Log("damage : " + damage);
 
@@ -70,10 +72,17 @@ public class PlayerHP : MonoBehaviour
                 //最大HPにおける現在のHPをSliderに反映。
                 //int同士の割り算は小数点以下は0になるので、
                 //(float)をつけてfloatの変数として振舞わせる。
-                slider.value = (float)currentHp / (float)maxHp; ;
-                Debug.Log("slider.value : " + slider.value);
+                //slider.value = (float)currentHp / (float)maxHp; ;
+                ChangeValue((float)currentHp / (float)maxHp);
+                //Debug.Log("slider.value : " + slider.value);
             }
         }
+    }
+    void ChangeValue(float value)
+    {
+        // DOTween.To() を使って連続的に変化させる
+        DOTween.To(() => slider.value, x => slider.value = x, value, _changeValueInterval)  .OnComplete(() => Debug.Log($"lifeが{value}になりました"));
+
     }
     public void HitPoisonLife(float life)
     {
