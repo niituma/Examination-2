@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+
 
 public class IsPause : MonoBehaviour
 {
@@ -20,18 +22,13 @@ public class IsPause : MonoBehaviour
         if (gameObject.name == "Boss")
             GameObject.Find("Boss").GetComponent<BossController>().enabled = false;
 
-        var objects = GameObject.FindObjectsOfType<WizardController>();
+        ParticleSystem[] Lasers;
+        Lasers = GameObject.FindObjectsOfType<ParticleSystem>();
+        WizardController[] objects;
+        objects = GameObject.FindObjectsOfType<WizardController>();
         var Wbullets = GameObject.FindObjectsOfType<WbulletMove>();
-        var Lasers = GameObject.FindObjectsOfType<ParticleSystem>();
-
-        foreach (var o in Lasers)
-        {
-            o.Pause();
-        }
-        foreach (var o in objects)
-        {
-            o.GetComponent<WizardController>().enabled = false;
-        }
+        Lasers.ToList().ForEach(p => p.Stop());
+        objects.ToList().ForEach(o => o.GetComponent<WizardController>().enabled = true);
 
         foreach (var o in Wbullets)
         {
