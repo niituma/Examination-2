@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    //
     [SerializeField] GameObject PausePanel = default;
     bool ispause = default;
     private void Update()
